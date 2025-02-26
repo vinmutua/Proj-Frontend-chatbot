@@ -28,6 +28,9 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
+# Local History for Visual Studio Code
+.lh/
+
 # Miscellaneous
 /.angular/cache
 .sass-cache/
@@ -47,6 +50,10 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+
+# Environment-specific files
+/src/environments/*
+!/src/environments/environment.example.ts
 
 # Package manager locks (uncomment based on your preference)
 # package-lock.json
@@ -74,6 +81,14 @@ Thumbs.db
 .vim
 *.sublime-project
 *~
+
+# Tailwind and PostCSS
+postcss.config.js
+tailwind.config.js
+
+# Assets that should be versioned separately (if needed)
+# /src/assets/large-files/
+# /src/assets/confidential/
 
 # Logs
 logs
