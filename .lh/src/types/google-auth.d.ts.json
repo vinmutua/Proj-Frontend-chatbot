@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/types/google-auth.d.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1740384741717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1740384741717,
+            "name": "Commit-0",
+            "content": "declare global {\r\n    interface Window {\r\n      gapi: {\r\n        load(api: string, callback: () => void): void;\r\n        auth2: {\r\n          init(params: { client_id: string; scope: string }): Promise<void>;\r\n          getAuthInstance(): any;\r\n        };\r\n      };\r\n    }\r\n  }\r\n  \r\n  export {};  // This is important to make the file a module\r\n  "
+        }
+    ]
+}

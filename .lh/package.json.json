@@ -1,0 +1,38 @@
+{
+    "sourceFile": "package.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1740306113032,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740306119160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,22 +17,22 @@\n     \"@angular/forms\": \"^19.1.0\",\r\n     \"@angular/platform-browser\": \"^19.1.0\",\r\n     \"@angular/platform-browser-dynamic\": \"^19.1.0\",\r\n     \"@angular/router\": \"^19.1.0\",\r\n-    \"@popperjs/core\": \"^2.11.8\",\r\n-    \"@preline/dropdown\": \"^2.5.2\",\r\n-    \"@types/aos\": \"^3.0.7\",\r\n-    \"aos\": \"^2.3.4\",\r\n     \"rxjs\": \"~7.8.0\",\r\n-    \"tslib\": \"^2.3.0\",\r\n-    \"zone.js\": \"~0.15.0\"\r\n+    \"tslib\": \"^2.6.0\",\r\n+    \"zone.js\": \"~0.14.3\"\r\n   },\r\n   \"devDependencies\": {\r\n-    \"@angular-devkit/build-angular\": \"^0.1101.2\",\r\n-    \"@angular/cli\": \"^19.1.4\",\r\n+    \"@angular-devkit/build-angular\": \"^19.1.8\",\r\n+    \"@angular/cli\": \"^19.1.0\",\r\n     \"@angular/compiler-cli\": \"^19.1.0\",\r\n-    \"@tailwindcss/forms\": \"^0.5.10\",\r\n-    \"@types/gapi\": \"^0.0.47\",\r\n+    \"@types/jasmine\": \"~5.1.0\",\r\n+    \"jasmine-core\": \"~5.1.0\",\r\n+    \"karma\": \"~6.4.0\",\r\n+    \"karma-chrome-launcher\": \"~3.2.0\",\r\n+    \"karma-coverage\": \"~2.2.0\",\r\n+    \"karma-jasmine\": \"~5.1.0\",\r\n     \"@types/gapi.auth2\": \"^0.0.61\",\r\n     \"@types/jasmine\": \"~5.1.0\",\r\n     \"autoprefixer\": \"^10.4.20\",\r\n     \"flowbite\": \"^3.1.2\",\r\n"
+                },
+                {
+                    "date": 1740307396959,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,19 +31,9 @@\n     \"karma\": \"~6.4.0\",\r\n     \"karma-chrome-launcher\": \"~3.2.0\",\r\n     \"karma-coverage\": \"~2.2.0\",\r\n     \"karma-jasmine\": \"~5.1.0\",\r\n-    \"@types/gapi.auth2\": \"^0.0.61\",\r\n-    \"@types/jasmine\": \"~5.1.0\",\r\n-    \"autoprefixer\": \"^10.4.20\",\r\n-    \"flowbite\": \"^3.1.2\",\r\n-    \"jasmine-core\": \"~5.5.0\",\r\n-    \"karma\": \"~6.4.0\",\r\n-    \"karma-chrome-launcher\": \"~3.2.0\",\r\n-    \"karma-coverage\": \"~2.2.0\",\r\n-    \"karma-jasmine\": \"~5.1.0\",\r\n     \"karma-jasmine-html-reporter\": \"~2.1.0\",\r\n-    \"postcss\": \"^8.5.2\",\r\n-    \"tailwindcss\": \"^3.4.17\",\r\n-    \"typescript\": \"~5.7.2\"\r\n+    \"typescript\": \"~5.5.0\",\r\n+    \"tailwindcss\": \"^3.4.1\"\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1740308558280,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n     \"@angular/platform-browser-dynamic\": \"^19.1.0\",\r\n     \"@angular/router\": \"^19.1.0\",\r\n     \"rxjs\": \"~7.8.0\",\r\n     \"tslib\": \"^2.6.0\",\r\n-    \"zone.js\": \"~0.14.3\"\r\n+    \"zone.js\": \"~0.15.0\"\r\n   },\r\n   \"devDependencies\": {\r\n     \"@angular-devkit/build-angular\": \"^19.1.8\",\r\n     \"@angular/cli\": \"^19.1.0\",\r\n"
+                },
+                {
+                    "date": 1740337410467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,23 +17,28 @@\n     \"@angular/forms\": \"^19.1.0\",\r\n     \"@angular/platform-browser\": \"^19.1.0\",\r\n     \"@angular/platform-browser-dynamic\": \"^19.1.0\",\r\n     \"@angular/router\": \"^19.1.0\",\r\n+    \"@types/aos\": \"^3.0.7\",\r\n+    \"aos\": \"^2.3.4\",\r\n+    \"flowbite\": \"^3.1.2\",\r\n+    \"flowbite-react\": \"^0.10.2\",\r\n     \"rxjs\": \"~7.8.0\",\r\n     \"tslib\": \"^2.6.0\",\r\n     \"zone.js\": \"~0.15.0\"\r\n   },\r\n   \"devDependencies\": {\r\n-    \"@angular-devkit/build-angular\": \"^19.1.8\",\r\n+    \"@angular-devkit/build-angular\": \"^19.1.0\",  // Update this line\r\n     \"@angular/cli\": \"^19.1.0\",\r\n     \"@angular/compiler-cli\": \"^19.1.0\",\r\n+    \"@tailwindcss/forms\": \"^0.5.10\",\r\n     \"@types/jasmine\": \"~5.1.0\",\r\n     \"jasmine-core\": \"~5.1.0\",\r\n     \"karma\": \"~6.4.0\",\r\n     \"karma-chrome-launcher\": \"~3.2.0\",\r\n     \"karma-coverage\": \"~2.2.0\",\r\n     \"karma-jasmine\": \"~5.1.0\",\r\n     \"karma-jasmine-html-reporter\": \"~2.1.0\",\r\n-    \"typescript\": \"~5.5.0\",\r\n-    \"tailwindcss\": \"^3.4.1\"\r\n+    \"tailwindcss\": \"^3.4.1\",\r\n+    \"typescript\": \"~5.5.0\"\r\n   }\r\n }\r\n"
+                },
+                {
+                    "date": 1740337548798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n     \"tslib\": \"^2.6.0\",\r\n     \"zone.js\": \"~0.15.0\"\r\n   },\r\n   \"devDependencies\": {\r\n-    \"@angular-devkit/build-angular\": \"^19.1.0\",  // Update this line\r\n+    \"@angular-devkit/build-angular\": \"^19.1.0\", \r\n     \"@angular/cli\": \"^19.1.0\",\r\n     \"@angular/compiler-cli\": \"^19.1.0\",\r\n     \"@tailwindcss/forms\": \"^0.5.10\",\r\n     \"@types/jasmine\": \"~5.1.0\",\r\n"
+                }
+            ],
+            "date": 1740306113032,
+            "name": "Commit-0",
+            "content": "{\r\n  \"name\": \"front-ui\",\r\n  \"version\": \"0.0.0\",\r\n  \"scripts\": {\r\n    \"ng\": \"ng\",\r\n    \"start\": \"ng serve\",\r\n    \"build\": \"ng build\",\r\n    \"watch\": \"ng build --watch --configuration development\",\r\n    \"test\": \"ng test\"\r\n  },\r\n  \"private\": true,\r\n  \"dependencies\": {\r\n    \"@angular/animations\": \"^19.1.0\",\r\n    \"@angular/common\": \"^19.1.0\",\r\n    \"@angular/compiler\": \"^19.1.0\",\r\n    \"@angular/core\": \"^19.1.0\",\r\n    \"@angular/forms\": \"^19.1.0\",\r\n    \"@angular/platform-browser\": \"^19.1.0\",\r\n    \"@angular/platform-browser-dynamic\": \"^19.1.0\",\r\n    \"@angular/router\": \"^19.1.0\",\r\n    \"@popperjs/core\": \"^2.11.8\",\r\n    \"@preline/dropdown\": \"^2.5.2\",\r\n    \"@types/aos\": \"^3.0.7\",\r\n    \"aos\": \"^2.3.4\",\r\n    \"rxjs\": \"~7.8.0\",\r\n    \"tslib\": \"^2.3.0\",\r\n    \"zone.js\": \"~0.15.0\"\r\n  },\r\n  \"devDependencies\": {\r\n    \"@angular-devkit/build-angular\": \"^0.1101.2\",\r\n    \"@angular/cli\": \"^19.1.4\",\r\n    \"@angular/compiler-cli\": \"^19.1.0\",\r\n    \"@tailwindcss/forms\": \"^0.5.10\",\r\n    \"@types/gapi\": \"^0.0.47\",\r\n    \"@types/gapi.auth2\": \"^0.0.61\",\r\n    \"@types/jasmine\": \"~5.1.0\",\r\n    \"autoprefixer\": \"^10.4.20\",\r\n    \"flowbite\": \"^3.1.2\",\r\n    \"jasmine-core\": \"~5.5.0\",\r\n    \"karma\": \"~6.4.0\",\r\n    \"karma-chrome-launcher\": \"~3.2.0\",\r\n    \"karma-coverage\": \"~2.2.0\",\r\n    \"karma-jasmine\": \"~5.1.0\",\r\n    \"karma-jasmine-html-reporter\": \"~2.1.0\",\r\n    \"postcss\": \"^8.5.2\",\r\n    \"tailwindcss\": \"^3.4.17\",\r\n    \"typescript\": \"~5.7.2\"\r\n  }\r\n}\r\n"
+        }
+    ]
+}

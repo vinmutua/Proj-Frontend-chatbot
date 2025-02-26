@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/app/types/google-auth.d.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1740269824813,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740384309547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,25 +17,4 @@\n       };\r\n     };\r\n   }\r\n }\r\n-\r\n-export interface GoogleUser {\r\n-  getBasicProfile(): {\r\n-    getId(): string;\r\n-    getName(): string;\r\n-    getEmail(): string;\r\n-    getImageUrl(): string;\r\n-  };\r\n-  getAuthResponse(): {\r\n-    id_token: string;\r\n-    access_token: string;\r\n-  };\r\n-}\r\n-\r\n-export interface GoogleAuthData {\r\n-  googleId: string;\r\n-  email: string;\r\n-  name: string;\r\n-  photoUrl?: string;\r\n-  idToken?: string;\r\n-}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1740384336303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,20 +1,13 @@\n declare global {\r\n   interface Window {\r\n     gapi: {\r\n-      load(\r\n-        apiName: string,\r\n-        callback: () => void\r\n-      ): void;\r\n+      load(api: string, callback: () => void): void;\r\n       auth2: {\r\n-        init(params: {\r\n-          client_id: string;\r\n-          scope: string;\r\n-        }): Promise<any>;\r\n-        getAuthInstance(): {\r\n-          signIn(): Promise<any>;\r\n-          signOut(): Promise<any>;\r\n-        };\r\n+        init(params: { client_id: string; scope: string }): Promise<void>;\r\n+        getAuthInstance(): any;\r\n       };\r\n     };\r\n   }\r\n }\r\n+\r\n+export {};  // This is important to make the file a module\r\n"
+                },
+                {
+                    "date": 1740384735039,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +0,0 @@\n-declare global {\r\n-  interface Window {\r\n-    gapi: {\r\n-      load(api: string, callback: () => void): void;\r\n-      auth2: {\r\n-        init(params: { client_id: string; scope: string }): Promise<void>;\r\n-        getAuthInstance(): any;\r\n-      };\r\n-    };\r\n-  }\r\n-}\r\n-\r\n-export {};  // This is important to make the file a module\r\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1740269824813,
+            "name": "Commit-0",
+            "content": "declare global {\r\n  interface Window {\r\n    gapi: {\r\n      load(\r\n        apiName: string,\r\n        callback: () => void\r\n      ): void;\r\n      auth2: {\r\n        init(params: {\r\n          client_id: string;\r\n          scope: string;\r\n        }): Promise<any>;\r\n        getAuthInstance(): {\r\n          signIn(): Promise<any>;\r\n          signOut(): Promise<any>;\r\n        };\r\n      };\r\n    };\r\n  }\r\n}\r\n\r\nexport interface GoogleUser {\r\n  getBasicProfile(): {\r\n    getId(): string;\r\n    getName(): string;\r\n    getEmail(): string;\r\n    getImageUrl(): string;\r\n  };\r\n  getAuthResponse(): {\r\n    id_token: string;\r\n    access_token: string;\r\n  };\r\n}\r\n\r\nexport interface GoogleAuthData {\r\n  googleId: string;\r\n  email: string;\r\n  name: string;\r\n  photoUrl?: string;\r\n  idToken?: string;\r\n}"
+        }
+    ]
+}

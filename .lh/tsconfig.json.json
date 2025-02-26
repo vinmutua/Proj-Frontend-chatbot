@@ -1,0 +1,26 @@
+{
+    "sourceFile": "tsconfig.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1740269843891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740384764320,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,10 +18,9 @@\n     \"target\": \"ES2022\",\r\n     \"module\": \"ES2022\",\r\n     \"typeRoots\": [\r\n       \"node_modules/@types\",\r\n-      \"src/app/types\"\r\n-    ]\r\n+\"src/types\"    ]\r\n   },\r\n   \"angularCompilerOptions\": {\r\n     \"enableI18nLegacyMessageIdFormat\": false,\r\n     \"strictInjectionParameters\": true,\r\n"
+                },
+                {
+                    "date": 1740384769691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n     \"target\": \"ES2022\",\r\n     \"module\": \"ES2022\",\r\n     \"typeRoots\": [\r\n       \"node_modules/@types\",\r\n-\"src/types\"    ]\r\n+      \"src/types\"    ]\r\n   },\r\n   \"angularCompilerOptions\": {\r\n     \"enableI18nLegacyMessageIdFormat\": false,\r\n     \"strictInjectionParameters\": true,\r\n"
+                }
+            ],
+            "date": 1740269843891,
+            "name": "Commit-0",
+            "content": "/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */\r\n/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */\r\n{\r\n  \"compileOnSave\": false,\r\n  \"compilerOptions\": {\r\n    \"outDir\": \"./dist/out-tsc\",\r\n    \"strict\": true,\r\n    \"noImplicitOverride\": true,\r\n    \"noPropertyAccessFromIndexSignature\": true,\r\n    \"noImplicitReturns\": true,\r\n    \"noFallthroughCasesInSwitch\": true,\r\n    \"skipLibCheck\": true,\r\n    \"isolatedModules\": true,\r\n    \"esModuleInterop\": true,\r\n    \"experimentalDecorators\": true,\r\n    \"moduleResolution\": \"bundler\",\r\n    \"importHelpers\": true,\r\n    \"target\": \"ES2022\",\r\n    \"module\": \"ES2022\",\r\n    \"typeRoots\": [\r\n      \"node_modules/@types\",\r\n      \"src/app/types\"\r\n    ]\r\n  },\r\n  \"angularCompilerOptions\": {\r\n    \"enableI18nLegacyMessageIdFormat\": false,\r\n    \"strictInjectionParameters\": true,\r\n    \"strictInputAccessModifiers\": true,\r\n    \"strictTemplates\": true\r\n  }\r\n}\r\n"
+        }
+    ]
+}

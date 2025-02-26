@@ -1,0 +1,58 @@
+{
+    "sourceFile": "src/index.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1739872511775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1739872524676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n   <base href=\"/\">\r\n   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n   <script defer src=\"https://cdn.jsdelivr.net/npm/preline@2.0.3/dist/preline.min.js\"></script>\r\n   <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n+  scroll effect\r\n   <link rel=\"stylesheet\" href=\"https://unpkg.com/aos@next/dist/aos.css\">\r\n <script src=\"https://unpkg.com/aos@next/dist/aos.js\"></script>\r\n   <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css\">\r\n   <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\r\n"
+                },
+                {
+                    "date": 1739872533493,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,12 @@\n   <base href=\"/\">\r\n   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n   <script defer src=\"https://cdn.jsdelivr.net/npm/preline@2.0.3/dist/preline.min.js\"></script>\r\n   <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n-  scroll effect\r\n+  <!-- scroll effect -->\r\n   <link rel=\"stylesheet\" href=\"https://unpkg.com/aos@next/dist/aos.css\">\r\n <script src=\"https://unpkg.com/aos@next/dist/aos.js\"></script>\r\n+\r\n   <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css\">\r\n   <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\r\n   <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\r\n   <link\r\n"
+                },
+                {
+                    "date": 1739872540827,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n   <!-- scroll effect -->\r\n   <link rel=\"stylesheet\" href=\"https://unpkg.com/aos@next/dist/aos.css\">\r\n <script src=\"https://unpkg.com/aos@next/dist/aos.js\"></script>\r\n-\r\n+  \r\n   <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css\">\r\n   <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\r\n   <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\r\n   <link\r\n"
+                },
+                {
+                    "date": 1740269562787,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,15 +10,17 @@\n   <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n   <!-- scroll effect -->\r\n   <link rel=\"stylesheet\" href=\"https://unpkg.com/aos@next/dist/aos.css\">\r\n <script src=\"https://unpkg.com/aos@next/dist/aos.js\"></script>\r\n-  \r\n+  <!-- Bootstrap CSS -->\r\n   <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css\">\r\n   <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\r\n   <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\r\n   <link\r\n     href=\"https://fonts.googleapis.com/css2?family=Capriola&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap\"\r\n     rel=\"stylesheet\">\r\n+  <script src=\"https://apis.google.com/js/platform.js\" async defer></script>\r\n+  <meta name=\"google-signin-client_id\" content=\"your-google-client-id\">\r\n </head>\r\n \r\n <body>\r\n   <app-root></app-root>\r\n"
+                },
+                {
+                    "date": 1740269571596,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,10 @@\n   <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\r\n   <link\r\n     href=\"https://fonts.googleapis.com/css2?family=Capriola&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap\"\r\n     rel=\"stylesheet\">\r\n+\r\n+    \r\n   <script src=\"https://apis.google.com/js/platform.js\" async defer></script>\r\n   <meta name=\"google-signin-client_id\" content=\"your-google-client-id\">\r\n </head>\r\n \r\n"
+                },
+                {
+                    "date": 1740269579575,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n   <link\r\n     href=\"https://fonts.googleapis.com/css2?family=Capriola&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap\"\r\n     rel=\"stylesheet\">\r\n \r\n-    \r\n+    GOOOGLE S\r\n   <script src=\"https://apis.google.com/js/platform.js\" async defer></script>\r\n   <meta name=\"google-signin-client_id\" content=\"your-google-client-id\">\r\n </head>\r\n \r\n"
+                },
+                {
+                    "date": 1740269586636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n   <link\r\n     href=\"https://fonts.googleapis.com/css2?family=Capriola&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap\"\r\n     rel=\"stylesheet\">\r\n \r\n-    GOOOGLE S\r\n+    <!-- GOOOGLE SDK -->\r\n   <script src=\"https://apis.google.com/js/platform.js\" async defer></script>\r\n   <meta name=\"google-signin-client_id\" content=\"your-google-client-id\">\r\n </head>\r\n \r\n"
+                },
+                {
+                    "date": 1740270447308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     rel=\"stylesheet\">\r\n \r\n     <!-- GOOOGLE SDK -->\r\n   <script src=\"https://apis.google.com/js/platform.js\" async defer></script>\r\n-  <meta name=\"google-signin-client_id\" content=\"your-google-client-id\">\r\n+  <meta name=\"google-signin-client_id\" content=\"YOUR_GOOGLE_CLIENT_ID\">\r\n </head>\r\n \r\n <body>\r\n   <app-root></app-root>\r\n"
+                },
+                {
+                    "date": 1740325434208,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,9 @@\n \r\n     <!-- GOOOGLE SDK -->\r\n   <script src=\"https://apis.google.com/js/platform.js\" async defer></script>\r\n   <meta name=\"google-signin-client_id\" content=\"YOUR_GOOGLE_CLIENT_ID\">\r\n+  i want to use standalone module architecture.help me remove all module based architecture files an folders and their code  <script src=\"./node_modules/flowbite/dist/flowbite.min.js\"></script>\r\n </head>\r\n \r\n <body>\r\n   <app-root></app-root>\r\n"
+                },
+                {
+                    "date": 1740326352355,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,10 +20,10 @@\n     rel=\"stylesheet\">\r\n \r\n     <!-- GOOOGLE SDK -->\r\n   <script src=\"https://apis.google.com/js/platform.js\" async defer></script>\r\n-  <meta name=\"google-signin-client_id\" content=\"YOUR_GOOGLE_CLIENT_ID\">\r\n-  i want to use standalone module architecture.help me remove all module based architecture files an folders and their code  <script src=\"./node_modules/flowbite/dist/flowbite.min.js\"></script>\r\n+  <meta name=\"google-signin-client_id\" content=\"YOUR_ACTUAL_GOOGLE_CLIENT_ID\">\r\n+  <script src=\"./node_modules/flowbite/dist/flowbite.min.js\"></script>\r\n </head>\r\n \r\n <body>\r\n   <app-root></app-root>\r\n"
+                }
+            ],
+            "date": 1739872511775,
+            "name": "Commit-0",
+            "content": "<!doctype html>\r\n<html lang=\"en\">\r\n\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <title>FrontUi</title>\r\n  <base href=\"/\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n  <script defer src=\"https://cdn.jsdelivr.net/npm/preline@2.0.3/dist/preline.min.js\"></script>\r\n  <link rel=\"icon\" type=\"image/x-icon\" href=\"favicon.ico\">\r\n  <link rel=\"stylesheet\" href=\"https://unpkg.com/aos@next/dist/aos.css\">\r\n<script src=\"https://unpkg.com/aos@next/dist/aos.js\"></script>\r\n  <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css\">\r\n  <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\r\n  <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\r\n  <link\r\n    href=\"https://fonts.googleapis.com/css2?family=Capriola&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap\"\r\n    rel=\"stylesheet\">\r\n</head>\r\n\r\n<body>\r\n  <app-root></app-root>\r\n</body>\r\n\r\n</html>"
+        }
+    ]
+}

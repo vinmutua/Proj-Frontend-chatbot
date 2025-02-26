@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/app/app.routes.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1739999115161,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1739999140500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,8 @@\n   {\r\n     path: 'signup',\r\n     component: SignupComponent\r\n   },\r\n-  // Redirect all unknown paths to landing page\r\n   { \r\n     path: '**', \r\n     redirectTo: '' \r\n   }\r\n"
+                },
+                {
+                    "date": 1740326399874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,21 +3,9 @@\n import { LoginComponent } from './auth/login/login.component';\r\n import { SignupComponent } from './auth/signup/signup.component';\r\n \r\n export const routes: Routes = [\r\n-  { \r\n-    path: '', \r\n-    component: LandingPageComponent \r\n-  },\r\n-  {\r\n-    path: 'login',\r\n-    component: LoginComponent\r\n-  },\r\n-  {\r\n-    path: 'signup',\r\n-    component: SignupComponent\r\n-  },\r\n-  { \r\n-    path: '**', \r\n-    redirectTo: '' \r\n-  }\r\n+  { path: '', component: LandingPageComponent },\r\n+  { path: 'login', component: LoginComponent },\r\n+  { path: 'signup', component: SignupComponent },\r\n+  { path: '**', redirectTo: '' }\r\n ];\r\n"
+                },
+                {
+                    "date": 1740335573130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,18 @@\n-import { Routes } from '@angular/router';\r\n+import { NgModule } from '@angular/core';\r\n+import { RouterModule, Routes } from '@angular/router';\r\n import { LandingPageComponent } from './landing-page/landing-page.component';\r\n import { LoginComponent } from './auth/login/login.component';\r\n import { SignupComponent } from './auth/signup/signup.component';\r\n \r\n-export const routes: Routes = [\r\n+const routes: Routes = [\r\n   { path: '', component: LandingPageComponent },\r\n   { path: 'login', component: LoginComponent },\r\n   { path: 'signup', component: SignupComponent },\r\n   { path: '**', redirectTo: '' }\r\n ];\r\n+\r\n+@NgModule({\r\n+  imports: [RouterModule.forRoot(routes)],\r\n+  exports: [RouterModule]\r\n+})\r\n+export class AppRoutingModule { }\r\n"
+                },
+                {
+                    "date": 1740342342525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,12 @@\n import { NgModule } from '@angular/core';\r\n-import { RouterModule, Routes } from '@angular/router';\r\n+import { RouterModule } from '@angular/router';\r\n+import { Routes } from '@angular/router';\r\n import { LandingPageComponent } from './landing-page/landing-page.component';\r\n import { LoginComponent } from './auth/login/login.component';\r\n import { SignupComponent } from './auth/signup/signup.component';\r\n \r\n-const routes: Routes = [\r\n+export const routes: Routes = [\r\n   { path: '', component: LandingPageComponent },\r\n   { path: 'login', component: LoginComponent },\r\n   { path: 'signup', component: SignupComponent },\r\n   { path: '**', redirectTo: '' }\r\n"
+                },
+                {
+                    "date": 1740342354007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,5 @@\n   { path: 'signup', component: SignupComponent },\r\n   { path: '**', redirectTo: '' }\r\n ];\r\n \r\n-@NgModule({\r\n-  imports: [RouterModule.forRoot(routes)],\r\n-  exports: [RouterModule]\r\n-})\r\n-export class AppRoutingModule { }\r\n+\r\n"
+                },
+                {
+                    "date": 1740342360965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,5 +11,4 @@\n   { path: 'signup', component: SignupComponent },\r\n   { path: '**', redirectTo: '' }\r\n ];\r\n \r\n-\r\n"
+                }
+            ],
+            "date": 1739999115161,
+            "name": "Commit-0",
+            "content": "import { Routes } from '@angular/router';\r\nimport { LandingPageComponent } from './landing-page/landing-page.component';\r\nimport { LoginComponent } from './auth/login/login.component';\r\nimport { SignupComponent } from './auth/signup/signup.component';\r\n\r\nexport const routes: Routes = [\r\n  { \r\n    path: '', \r\n    component: LandingPageComponent \r\n  },\r\n  {\r\n    path: 'login',\r\n    component: LoginComponent\r\n  },\r\n  {\r\n    path: 'signup',\r\n    component: SignupComponent\r\n  },\r\n  // Redirect all unknown paths to landing page\r\n  { \r\n    path: '**', \r\n    redirectTo: '' \r\n  }\r\n];\r\n"
+        }
+    ]
+}

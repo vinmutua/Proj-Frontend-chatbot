@@ -1,0 +1,121 @@
+<section class="bg-gray-50 dark:bg-gray-900">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
+        <div class="flex flex-col justify-center">
+            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Sign in</h1>
+            <p class="mb-8 text-lg font-normal text-gray-500 dark:text-gray-400">Welcome back! Sign in to access exclusive content.</p>
+        </div>
+        <div class="w-full lg:max-w-xl p-6 space-y-8 sm:p-8 bg-white rounded-lg shadow-xl dark:bg-gray-800">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+                Sign in to your account
+            </h2>
+            
+            <!-- Google Sign In Button -->
+            <button 
+                type="button" 
+                (click)="googleLogin()"
+                [disabled]="isLoading"
+                class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                <svg *ngIf="!isLoading" class="w-4 h-auto" width="46" height="47" viewBox="0 0 46 47" fill="none">
+                    <path d="M46 24.0287C46 22.09 45.8533 20.68 45.5013 19.2112H23.4694V27.9356H36.4069C36.1429 30.1094 34.7347 33.37 31.5957 35.5731L31.5663 35.8669L38.5191 41.2719L38.9885 41.3306C43.4477 37.2181 46 31.1669 46 24.0287Z" fill="#4285F4"/>
+                    <path d="M23.4694 47C29.8061 47 35.1161 44.9144 39.0179 41.3012L31.625 35.5437C29.6301 36.9244 26.9898 37.8937 23.4987 37.8937C17.2793 37.8937 12.0281 33.7812 10.1505 28.1412L9.88649 28.1706L2.61097 33.7812L2.52296 34.0456C6.36608 41.7125 14.287 47 23.4694 47Z" fill="#34A853"/>
+                    <path d="M10.1212 28.1413C9.62245 26.6725 9.32908 25.1156 9.32908 23.5C9.32908 21.8844 9.62245 20.3275 10.0918 18.8588V18.5356L2.75765 12.8369L2.52296 12.9544C0.909439 16.1269 0 19.7106 0 23.5C0 27.2894 0.909439 30.8731 2.49362 34.0456L10.1212 28.1413Z" fill="#FBBC05"/>
+                    <path d="M23.4694 9.07688C27.8699 9.07688 30.8622 10.9863 32.5344 12.5725L39.1645 6.11C35.0867 2.32063 29.8061 0 23.4694 0C14.287 0 6.36607 5.2875 2.49362 12.9544L10.0918 18.8588C11.9987 13.1894 17.25 9.07688 23.4694 9.07688Z" fill="#EB4335"/>
+                </svg>
+                <svg *ngIf="isLoading" class="inline w-4 h-4 animate-spin" viewBox="0 0 24 24">
+                    <!-- ...spinner SVG from above... -->
+                </svg>
+                {{ isLoading ? 'Signing in...' : 'Sign in with Google' }}
+            </button>
+
+            <!-- Login Form -->
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mt-8 space-y-6">
+                <!-- Email Field -->
+                <div>
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        formControlName="email"
+                        aria-label="Email address"
+                        [attr.aria-invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+                        aria-describedby="email-error"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                        [ngClass]="{'border-red-500': loginForm.get('email')?.invalid && loginForm.get('email')?.touched}"
+                        placeholder="name@company.com" 
+                        required 
+                    />
+                    <!-- Email Error Messages -->
+                    <div id="email-error" 
+                         *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" 
+                         class="mt-1 mb-1 text-sm text-red-600 dark:text-red-500">
+                        <p *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</p>
+                        <p *ngIf="loginForm.get('email')?.errors?.['email']">Please enter a valid email</p>
+                    </div>
+                </div>
+
+                <!-- Password Field -->
+                <div>
+                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        formControlName="password"
+                        aria-label="Password"
+                        [attr.aria-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+                        aria-describedby="password-error"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                        [ngClass]="{'border-red-500': loginForm.get('password')?.invalid && loginForm.get('password')?.touched}"
+                        placeholder="••••••••" 
+                        required 
+                    />
+                    <!-- Password Error Message -->
+                    <div id="password-error"
+                         *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']" 
+                         class="mt-1 mb-1 text-sm text-red-600 dark:text-red-500">
+                        Password is required
+                    </div>
+                </div>
+
+                <!-- Remember Me & Lost Password -->
+                <div class="flex items-start">
+                    <div class="flex items-center h-5">
+                        <input 
+                            id="remember" 
+                            type="checkbox" 
+                            formControlName="remember"
+                            class="bg-gray-50 border border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" 
+                        />
+                    </div>
+                    <div class="ml-3 text-sm">
+                        <label for="remember" class="font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+                    </div>
+                    <a href="#" class="ml-auto text-sm font-semibold text-blue-600 hover:underline dark:text-blue-500">Lost Password?</a>
+                </div>
+
+                <!-- Error Message Display -->
+                <div *ngIf="errorMessage" 
+                     class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" 
+                     role="alert">
+                    {{ errorMessage }}
+                </div>
+
+                <!-- Submit Button -->
+                <button 
+                    type="submit" 
+                    [disabled]="loginForm.invalid || isLoading"
+                    class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <svg *ngIf="isLoading" class="inline w-4 h-4 mr-3 animate-spin" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"/>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                    </svg>
+                    {{ isLoading ? 'Signing in...' : 'Login to your account' }}
+                </button>
+
+                <!-- Sign Up Link -->
+                <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+                    Not registered? <a routerLink="/signup" class="text-blue-600 hover:underline dark:text-blue-500">Create account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

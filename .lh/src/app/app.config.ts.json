@@ -1,0 +1,74 @@
+{
+    "sourceFile": "src/app/app.config.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 14,
+            "patches": [
+                {
+                    "date": 1740262418053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740266382968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,12 @@\n import { ApplicationConfig } from '@angular/core';\r\n import { provideRouter } from '@angular/router';\r\n import { routes } from './app.routes';\r\n-import { provideHttpClient } from '@angular/common/http';\r\n+import { provideHttpClient, withInterceptors } from '@angular/common/http';\r\n+import { AuthInterceptor } from './interceptors/auth.interceptor';\r\n \r\n export const appConfig: ApplicationConfig = {\r\n   providers: [\r\n     provideRouter(routes),\r\n-    provideHttpClient()\r\n+    provideHttpClient(withInterceptors([AuthInterceptor]))\r\n   ]\r\n };\r\n"
+                },
+                {
+                    "date": 1740266612436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,7 +6,7 @@\n \r\n export const appConfig: ApplicationConfig = {\r\n   providers: [\r\n     provideRouter(routes),\r\n-    provideHttpClient(withInterceptors([AuthInterceptor]))\r\n+    provideHttpClient(withInterceptors([AuthInterceptor()]))\r\n   ]\r\n };\r\n"
+                },
+                {
+                    "date": 1740266629262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,7 +6,7 @@\n \r\n export const appConfig: ApplicationConfig = {\r\n   providers: [\r\n     provideRouter(routes),\r\n-    provideHttpClient(withInterceptors([AuthInterceptor()]))\r\n+    provideHttpClient(withInterceptors([AuthInterceptor]))\r\n   ]\r\n };\r\n"
+                },
+                {
+                    "date": 1740267888022,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,11 @@\n import { ApplicationConfig } from '@angular/core';\r\n import { provideRouter } from '@angular/router';\r\n import { routes } from './app.routes';\r\n-import { provideHttpClient, withInterceptors } from '@angular/common/http';\r\n-import { AuthInterceptor } from './interceptors/auth.interceptor';\r\n+import { provideHttpClient } from '@angular/common/http';\r\n \r\n export const appConfig: ApplicationConfig = {\r\n   providers: [\r\n     provideRouter(routes),\r\n-    provideHttpClient(withInterceptors([AuthInterceptor]))\r\n+    provideHttpClient()\r\n   ]\r\n };\r\n"
+                },
+                {
+                    "date": 1740273810417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,14 @@\n import { ApplicationConfig } from '@angular/core';\r\n import { provideRouter } from '@angular/router';\r\n+import { provideHttpClient, withInterceptors } from '@angular/common/http';\r\n import { routes } from './app.routes';\r\n-import { provideHttpClient } from '@angular/common/http';\r\n+import { AuthInterceptor } from './interceptors/auth.interceptor';\r\n \r\n export const appConfig: ApplicationConfig = {\r\n   providers: [\r\n     provideRouter(routes),\r\n-    provideHttpClient()\r\n+    provideHttpClient(\r\n+      withInterceptors([AuthInterceptor])\r\n+    )\r\n   ]\r\n };\r\n"
+                },
+                {
+                    "date": 1740274711785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,7 @@\n \r\n export const appConfig: ApplicationConfig = {\r\n   providers: [\r\n     provideRouter(routes),\r\n-    provideHttpClient(\r\n-      withInterceptors([AuthInterceptor])\r\n-    )\r\n-  ]\r\n+    provideHttpClient(withInterceptors([AuthInterceptor])),\r\n+  ],\r\n };\r\n"
+                },
+                {
+                    "date": 1740275160241,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,7 +6,7 @@\n \r\n export const appConfig: ApplicationConfig = {\r\n   providers: [\r\n     provideRouter(routes),\r\n-    provideHttpClient(withInterceptors([AuthInterceptor])),\r\n-  ],\r\n+    provideHttpClient(withInterceptors([AuthInterceptor]))\r\n+  ]\r\n };\r\n"
+                },
+                {
+                    "date": 1740275787748,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n import { ApplicationConfig } from '@angular/core';\r\n import { provideRouter } from '@angular/router';\r\n import { provideHttpClient, withInterceptors } from '@angular/common/http';\r\n import { routes } from './app.routes';\r\n-import { AuthInterceptor } from './interceptors/auth.interceptor';\r\n+import { authInterceptor } from './interceptors/auth.interceptor'; // Changed import name\r\n \r\n export const appConfig: ApplicationConfig = {\r\n   providers: [\r\n     provideRouter(routes),\r\n-    provideHttpClient(withInterceptors([AuthInterceptor]))\r\n+    provideHttpClient(withInterceptors([authInterceptor])) // Changed to lowercase\r\n   ]\r\n };\r\n"
+                },
+                {
+                    "date": 1740275904181,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n import { ApplicationConfig } from '@angular/core';\r\n import { provideRouter } from '@angular/router';\r\n import { provideHttpClient, withInterceptors } from '@angular/common/http';\r\n import { routes } from './app.routes';\r\n-import { authInterceptor } from './interceptors/auth.interceptor'; // Changed import name\r\n+import { authInterceptor } from './interceptors/auth.interceptor';\r\n \r\n export const appConfig: ApplicationConfig = {\r\n   providers: [\r\n     provideRouter(routes),\r\n-    provideHttpClient(withInterceptors([authInterceptor])) // Changed to lowercase\r\n+    provideHttpClient(withInterceptors([authInterceptor]))\r\n   ]\r\n };\r\n"
+                },
+                {
+                    "date": 1740276449617,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n import { ApplicationConfig } from '@angular/core';\r\n import { provideRouter } from '@angular/router';\r\n import { provideHttpClient, withInterceptors } from '@angular/common/http';\r\n import { routes } from './app.routes';\r\n-import { authInterceptor } from './interceptors/auth.interceptor';\r\n+import { AuthInterceptor } from './interceptors/auth.interceptor';\r\n \r\n export const appConfig: ApplicationConfig = {\r\n   providers: [\r\n     provideRouter(routes),\r\n-    provideHttpClient(withInterceptors([authInterceptor]))\r\n+    provideHttpClient(withInterceptors([AuthInterceptor]))\r\n   ]\r\n };\r\n"
+                },
+                {
+                    "date": 1740276683409,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n import { ApplicationConfig } from '@angular/core';\r\n import { provideRouter } from '@angular/router';\r\n import { provideHttpClient, withInterceptors } from '@angular/common/http';\r\n import { routes } from './app.routes';\r\n-import { AuthInterceptor } from './interceptors/auth.interceptor';\r\n+import { authInterceptor } from './interceptors/auth.interceptor';  // <-- use lowercase\r\n \r\n export const appConfig: ApplicationConfig = {\r\n   providers: [\r\n     provideRouter(routes),\r\n-    provideHttpClient(withInterceptors([AuthInterceptor]))\r\n+    provideHttpClient(withInterceptors([authInterceptor]))\r\n   ]\r\n };\r\n"
+                },
+                {
+                    "date": 1740300737091,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { ApplicationConfig } from '@angular/core';\r\n import { provideRouter } from '@angular/router';\r\n import { provideHttpClient, withInterceptors } from '@angular/common/http';\r\n import { routes } from './app.routes';\r\n-import { authInterceptor } from './interceptors/auth.interceptor';  // <-- use lowercase\r\n+import { authInterceptor } from './interceptors/auth.interceptor';  // use the same lowercase name as exported\r\n \r\n export const appConfig: ApplicationConfig = {\r\n   providers: [\r\n     provideRouter(routes),\r\n"
+                },
+                {
+                    "date": 1740326383777,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,22 @@\n-import { ApplicationConfig } from '@angular/core';\r\n+import { ApplicationConfig, importProvidersFrom } from '@angular/core';\r\n import { provideRouter } from '@angular/router';\r\n-import { provideHttpClient, withInterceptors } from '@angular/common/http';\r\n import { routes } from './app.routes';\r\n-import { authInterceptor } from './interceptors/auth.interceptor';  // use the same lowercase name as exported\r\n+import { provideHttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';\r\n+import { provideAnimations } from '@angular/platform-browser/animations';\r\n+import { provideReactiveFormDirectives } from '@angular/forms';\r\n+import { AuthInterceptor } from './interceptors/auth.interceptor';\r\n \r\n export const appConfig: ApplicationConfig = {\r\n   providers: [\r\n     provideRouter(routes),\r\n-    provideHttpClient(withInterceptors([authInterceptor]))\r\n+    provideHttpClient(),\r\n+    provideAnimations(),\r\n+    provideReactiveFormDirectives(),\r\n+    importProvidersFrom(HttpClientModule),\r\n+    {\r\n+      provide: HTTP_INTERCEPTORS,\r\n+      useClass: AuthInterceptor,\r\n+      multi: true\r\n+    }\r\n   ]\r\n-};\r\n+};\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1740335639266,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,10 @@\n import { LoginComponent } from './auth/login/login.component';\r\n import { SignupComponent } from './auth/signup/signup.component';\r\n import { provideHttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';\r\n import { provideAnimations } from '@angular/platform-browser/animations';\r\n+import { provideReactiveFormDirectives } from '@angular/forms';\r\n import { AuthInterceptor } from './interceptors/auth.interceptor';\r\n-\r\n export const appConfig: ApplicationConfig = {\r\n   providers: [\r\n     provideRouter(routes),\r\n     provideHttpClient(),\r\n"
+                }
+            ],
+            "date": 1740262418053,
+            "name": "Commit-0",
+            "content": "import { ApplicationConfig } from '@angular/core';\r\nimport { provideRouter } from '@angular/router';\r\nimport { routes } from './app.routes';\r\nimport { provideHttpClient } from '@angular/common/http';\r\n\r\nexport const appConfig: ApplicationConfig = {\r\n  providers: [\r\n    provideRouter(routes),\r\n    provideHttpClient()\r\n  ]\r\n};\r\n"
+        }
+    ]
+}

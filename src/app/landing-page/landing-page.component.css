@@ -1,0 +1,4 @@
+.hollow-text {
+    -webkit-text-stroke: 2px black; /* Creates a hollow text effect */
+    color: transparent;
+  }

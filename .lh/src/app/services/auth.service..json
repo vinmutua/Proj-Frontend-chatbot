@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/services/auth.service.",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1740268725108,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1740268725108,
+            "name": "Commit-0",
+            "content": "ts\r\nimport { Injectable } from '@angular/core';\r\nimport { HttpClient } from '@angular/common/http';\r\nimport { BehaviorSubject, Observable, tap } from 'rxjs';\r\nimport { Router } from '@angular/router';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class AuthService {\r\n  private readonly API_URL = 'http://your-api-url/api/auth';\r\n  private readonly TOKEN_KEY = 'auth_token';\r\n  private readonly USER_KEY = 'auth_user';\r\n  \r\n  private currentUserSubject = new BehaviorSubject<User | null>(null);\r\n  public currentUser$ = this.currentUserSubject.asObservable();\r\n  private isAuthenticated = new BehaviorSubject<boolean>(false);\r\n\r\n  constructor(\r\n    private http: HttpClient,\r\n    private router: Router\r\n  ) {\r\n    this.loadStoredUser();\r\n  }\r\n\r\n  // ... your existing methods\r\n}"
+        }
+    ]
+}

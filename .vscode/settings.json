@@ -1,0 +1,6 @@
+{
+    "local-history.browser.descending": true,
+    "files.associations": {
+        "*.css": "postcss"
+      }
+}

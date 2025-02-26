@@ -1,0 +1,50 @@
+{
+    "sourceFile": "src/app/intercept",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1740266479623,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740266661905,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-ors/auth.interceptor.ts\r\n+\r\n import { Injectable } from '@angular/core';\r\n import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';\r\n import { Observable, throwError } from 'rxjs';\r\n import { catchError } from 'rxjs/operators';\r\n"
+                },
+                {
+                    "date": 1740266939486,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n import { Injectable } from '@angular/core';\r\n import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';\r\n import { Observable, throwError } from 'rxjs';\r\n import { catchError } from 'rxjs/operators';\r\n-import { AuthService } from '../services/auth.service';\r\n \r\n @Injectable()\r\n export class AuthInterceptor implements HttpInterceptor {\r\n   constructor(private authService: AuthService) {}\r\n"
+                },
+                {
+                    "date": 1740266970225,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n import { Injectable } from '@angular/core';\r\n import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';\r\n import { Observable, throwError } from 'rxjs';\r\n import { catchError } from 'rxjs/operators';\r\n+import { AuthService } from '../services/auth.service';\r\n \r\n @Injectable()\r\n export class AuthInterceptor implements HttpInterceptor {\r\n   constructor(private authService: AuthService) {}\r\n"
+                },
+                {
+                    "date": 1740267334261,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-\r\n+ors/auth.interceptor.ts\r\n import { Injectable } from '@angular/core';\r\n import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';\r\n import { Observable, throwError } from 'rxjs';\r\n import { catchError } from 'rxjs/operators';\r\n"
+                },
+                {
+                    "date": 1740267365574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,22 +0,0 @@\n-ors/auth.interceptor.ts\r\n-import { Injectable } from '@angular/core';\r\n-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';\r\n-import { Observable, throwError } from 'rxjs';\r\n-import { catchError } from 'rxjs/operators';\r\n-import { AuthService } from '../services/auth.service';\r\n-\r\n-@Injectable()\r\n-export class AuthInterceptor implements HttpInterceptor {\r\n-  constructor(private authService: AuthService) {}\r\n-\r\n-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {\r\n-    return next.handle(request).pipe(\r\n-      catchError((error: HttpErrorResponse) => {\r\n-        if (error.status === 401) {\r\n-          this.authService.logout();\r\n-        }\r\n-        return throwError(() => error);\r\n-      })\r\n-    );\r\n-  }\r\n-}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1740267383844,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,33 @@\n+/app/interceptors/auth.interceptor.ts\r\n+import { Injectable } from '@angular/core';\r\n+import { \r\n+  HttpInterceptor, \r\n+  HttpRequest, \r\n+  HttpHandler, \r\n+  HttpEvent, \r\n+  HttpErrorResponse \r\n+} from '@angular/common/http';\r\n+import { Observable, throwError } from 'rxjs';\r\n+import { catchError } from 'rxjs/operators';\r\n+import { AuthService } from '../services/auth.service';\r\n+\r\n+@Injectable()\r\n+export class AuthInterceptor implements HttpInterceptor {\r\n+  constructor(private authService: AuthService) {}\r\n+\r\n+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {\r\n+    // Add auth header if token exists\r\n+    const token = this.authService.getToken();\r\n+    if (token) {\r\n+      request = request.clone({\r\n+        setHeaders: {\r\n+          Authorization: `Bearer ${token}`\r\n+        }\r\n+      });\r\n+    }\r\n+\r\n+    return next.handle(request).pipe(\r\n+      catchError((error: HttpErrorResponse) => {\r\n+        if (error.status === 401) {\r\n+          // Token expired or invalid\r\n+          this\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1740267393036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-/app/interceptors/auth.interceptor.ts\r\n import { Injectable } from '@angular/core';\r\n import { \r\n   HttpInterceptor, \r\n   HttpRequest, \r\n"
+                },
+                {
+                    "date": 1740267404250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,5 @@\n-import { Injectable } from '@angular/core';\r\n-import { \r\n-  HttpInterceptor, \r\n-  HttpRequest, \r\n-  HttpHandler, \r\n-  HttpEvent, \r\n-  HttpErrorResponse \r\n-} from '@angular/common/http';\r\n+\r\n import { Observable, throwError } from 'rxjs';\r\n import { catchError } from 'rxjs/operators';\r\n import { AuthService } from '../services/auth.service';\r\n \r\n"
+                }
+            ],
+            "date": 1740266479623,
+            "name": "Commit-0",
+            "content": "ors/auth.interceptor.ts\r\nimport { Injectable } from '@angular/core';\r\nimport { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';\r\nimport { Observable, throwError } from 'rxjs';\r\nimport { catchError } from 'rxjs/operators';\r\nimport { AuthService } from '../services/auth.service';\r\n\r\n@Injectable()\r\nexport class AuthInterceptor implements HttpInterceptor {\r\n  constructor(private authService: AuthService) {}\r\n\r\n  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {\r\n    return next.handle(request).pipe(\r\n      catchError((error: HttpErrorResponse) => {\r\n        if (error.status === 401) {\r\n          this.authService.logout();\r\n        }\r\n        return throwError(() => error);\r\n      })\r\n    );\r\n  }\r\n}"
+        }
+    ]
+}

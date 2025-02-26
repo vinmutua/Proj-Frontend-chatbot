@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/interceptors/your-interceptor.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1740266711365,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1740266711365,
+            "name": "Commit-0",
+            "content": "import { AuthService } from '../services/auth.service';"
+        }
+    ]
+}

@@ -1,0 +1,82 @@
+{
+    "sourceFile": "src/app/interceptors/auth.interceptor.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 16,
+            "patches": [
+                {
+                    "date": 1740266492733,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740266596101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-ors/auth.interceptor.ts\r\n import { Injectable } from '@angular/core';\r\n import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';\r\n import { Observable, throwError } from 'rxjs';\r\n import { catchError } from 'rxjs/operators';\r\n"
+                },
+                {
+                    "date": 1740267845366,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,20 +1,28 @@\n+interceptors/auth.interceptor.ts\r\n import { Injectable } from '@angular/core';\r\n import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';\r\n import { Observable, throwError } from 'rxjs';\r\n import { catchError } from 'rxjs/operators';\r\n-import { AuthService } from '../services/auth.service';\r\n \r\n @Injectable()\r\n export class AuthInterceptor implements HttpInterceptor {\r\n-  constructor(private authService: AuthService) {}\r\n+  constructor() {}\r\n \r\n   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {\r\n+    // Get token from localStorage or your auth service\r\n+    const token = localStorage.getItem('token');\r\n+\r\n+    if (token) {\r\n+      request = request.clone({\r\n+        setHeaders: {\r\n+          Authorization: `Bearer ${token}`\r\n+        }\r\n+      });\r\n+    }\r\n+\r\n     return next.handle(request).pipe(\r\n       catchError((error: HttpErrorResponse) => {\r\n-        if (error.status === 401) {\r\n-          this.authService.logout();\r\n-        }\r\n         return throwError(() => error);\r\n       })\r\n     );\r\n   }\r\n"
+                },
+                {
+                    "date": 1740267856236,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-interceptors/auth.interceptor.ts\r\n+\r\n import { Injectable } from '@angular/core';\r\n import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';\r\n import { Observable, throwError } from 'rxjs';\r\n import { catchError } from 'rxjs/operators';\r\n"
+                },
+                {
+                    "date": 1740268102594,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,26 +1,22 @@\n-\r\n import { Injectable } from '@angular/core';\r\n import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';\r\n import { Observable, throwError } from 'rxjs';\r\n-import { catchError } from 'rxjs/operators';\r\n+import { AuthService } from '../services/auth.service';\r\n \r\n @Injectable()\r\n export class AuthInterceptor implements HttpInterceptor {\r\n-  constructor() {}\r\n+  constructor(private authService: AuthService) {}\r\n \r\n   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {\r\n-    // Get token from localStorage or your auth service\r\n-    const token = localStorage.getItem('token');\r\n-\r\n+    const token = this.authService.getToken();\r\n     if (token) {\r\n       request = request.clone({\r\n         setHeaders: {\r\n           Authorization: `Bearer ${token}`\r\n         }\r\n       });\r\n     }\r\n-\r\n     return next.handle(request).pipe(\r\n       catchError((error: HttpErrorResponse) => {\r\n         return throwError(() => error);\r\n       })\r\n"
+                },
+                {
+                    "date": 1740268955234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,24 +1,38 @@\n import { Injectable } from '@angular/core';\r\n-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';\r\n+import {\r\n+  HttpInterceptor,\r\n+  HttpRequest,\r\n+  HttpHandler,\r\n+  HttpEvent,\r\n+  HttpErrorResponse,\r\n+} from '@angular/common/http';\r\n import { Observable, throwError } from 'rxjs';\r\n+import { catchError } from 'rxjs/operators';\r\n import { AuthService } from '../services/auth.service';\r\n \r\n @Injectable()\r\n export class AuthInterceptor implements HttpInterceptor {\r\n   constructor(private authService: AuthService) {}\r\n \r\n-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {\r\n+  intercept(\r\n+    request: HttpRequest<any>,\r\n+    next: HttpHandler\r\n+  ): Observable<HttpEvent<any>> {\r\n     const token = this.authService.getToken();\r\n     if (token) {\r\n       request = request.clone({\r\n         setHeaders: {\r\n-          Authorization: `Bearer ${token}`\r\n-        }\r\n+          Authorization: `Bearer ${token}`,\r\n+        },\r\n       });\r\n     }\r\n+\r\n     return next.handle(request).pipe(\r\n       catchError((error: HttpErrorResponse) => {\r\n+        if (error.status === 401) {\r\n+          this.authService.logout();\r\n+        }\r\n         return throwError(() => error);\r\n       })\r\n     );\r\n   }\r\n"
+                },
+                {
+                    "date": 1740274567895,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n   HttpErrorResponse,\r\n } from '@angular/common/http';\r\n import { Observable, throwError } from 'rxjs';\r\n import { catchError } from 'rxjs/operators';\r\n-import { AuthService } from '../services/auth.service';\r\n+import { AuthService } from '../services/auth.service'; // Corrected import path\r\n \r\n @Injectable()\r\n export class AuthInterceptor implements HttpInterceptor {\r\n   constructor(private authService: AuthService) {}\r\n"
+                },
+                {
+                    "date": 1740274698055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,36 +4,34 @@\n   HttpRequest,\r\n   HttpHandler,\r\n   HttpEvent,\r\n   HttpErrorResponse,\r\n+  HttpInterceptorFn,\r\n } from '@angular/common/http';\r\n-import { Observable, throwError } from 'rxjs';\r\n-import { catchError } from 'rxjs/operators';\r\n-import { AuthService } from '../services/auth.service'; // Corrected import path\r\n+import { Observable, throwError, catchError } from 'rxjs';\r\n+import { AuthService } from '../services/auth.service';\r\n+import { inject } from '@angular/core';\r\n+import { Router } from '@angular/router';\r\n \r\n-@Injectable()\r\n-export class AuthInterceptor implements HttpInterceptor {\r\n-  constructor(private authService: AuthService) {}\r\n+export const AuthInterceptor: HttpInterceptorFn = (req, next) => {\r\n+  const authService = inject(AuthService);\r\n+  const router = inject(Router);\r\n+  const token = authService.getToken();\r\n \r\n-  intercept(\r\n-    request: HttpRequest<any>,\r\n-    next: HttpHandler\r\n-  ): Observable<HttpEvent<any>> {\r\n-    const token = this.authService.getToken();\r\n-    if (token) {\r\n-      request = request.clone({\r\n-        setHeaders: {\r\n-          Authorization: `Bearer ${token}`,\r\n-        },\r\n-      });\r\n-    }\r\n+  if (token) {\r\n+    req = req.clone({\r\n\\ No newline at end of file\n+      setHeaders: {\r\n+        Authorization: `Bearer ${token}`,\r\n+      },\r\n+    });\r\n+  }\r\n \r\n-    return next.handle(request).pipe(\r\n-      catchError((error: HttpErrorResponse) => {\r\n-        if (error.status === 401) {\r\n-          this.authService.logout();\r\n-        }\r\n-        return throwError(() => error);\r\n-      })\r\n-    );\r\n-  }\r\n-}\n+  return next(req).pipe(\r\n+    catchError((error: HttpErrorResponse) => {\r\n+      if (error.status === 401) {\r\n+        authService.logout();\r\n+        router.navigate(['/login']);\r\n+      }\r\n+      return throwError(() => error);\r\n+    })\r\n+  );\r\n+};\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1740274779610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,16 +3,20 @@\n   HttpInterceptor,\r\n   HttpRequest,\r\n   HttpHandler,\r\n   HttpEvent,\r\n-  HttpErrorResponse,\r\n-  HttpInterceptorFn,\r\n } from '@angular/common/http';\r\n-import { Observable, throwError, catchError } from 'rxjs';\r\n+import { Observable } from 'rxjs';\r\n import { AuthService } from '../services/auth.service';\r\n import { inject } from '@angular/core';\r\n import { Router } from '@angular/router';\r\n \r\n+import {\r\n+  HttpInterceptorFn,\r\n+  HttpErrorResponse,\r\n+} from '@angular/common/http';\r\n+import { catchError, throwError } from 'rxjs';\r\n+\r\n export const AuthInterceptor: HttpInterceptorFn = (req, next) => {\r\n   const authService = inject(AuthService);\r\n   const router = inject(Router);\r\n   const token = authService.getToken();\r\n"
+                },
+                {
+                    "date": 1740274891024,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,23 +1,22 @@\n import { Injectable } from '@angular/core';\r\n import {\r\n-  HttpInterceptor,\r\n+  HttpInterceptorFn,\r\n+  HttpErrorResponse,\r\n   HttpRequest,\r\n-  HttpHandler,\r\n-  HttpEvent,\r\n+  HttpHandlerFn,\r\n+  HttpEvent\r\n } from '@angular/common/http';\r\n-import { Observable } from 'rxjs';\r\n+import { catchError, throwError } from 'rxjs';\r\n import { AuthService } from '../services/auth.service';\r\n import { inject } from '@angular/core';\r\n import { Router } from '@angular/router';\r\n+import { Observable } from 'rxjs';\r\n \r\n-import {\r\n-  HttpInterceptorFn,\r\n-  HttpErrorResponse,\r\n-} from '@angular/common/http';\r\n-import { catchError, throwError } from 'rxjs';\r\n-\r\n-export const AuthInterceptor: HttpInterceptorFn = (req, next) => {\r\n+export const AuthInterceptor: HttpInterceptorFn = (\r\n+  req: HttpRequest<unknown>,\r\n+  next: HttpHandlerFn\r\n+): Observable<HttpEvent<unknown>> => {\r\n   const authService = inject(AuthService);\r\n   const router = inject(Router);\r\n   const token = authService.getToken();\r\n \r\n"
+                },
+                {
+                    "date": 1740275109094,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,10 +22,10 @@\n \r\n   if (token) {\r\n     req = req.clone({\r\n       setHeaders: {\r\n-        Authorization: `Bearer ${token}`,\r\n-      },\r\n+        Authorization: `Bearer ${token}`\r\n+      }\r\n     });\r\n   }\r\n \r\n   return next(req).pipe(\r\n"
+                },
+                {
+                    "date": 1740275597497,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-import { Injectable } from '@angular/core';\r\n import {\r\n   HttpInterceptorFn,\r\n   HttpErrorResponse,\r\n   HttpRequest,\r\n"
+                },
+                {
+                    "date": 1740275764740,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n import { inject } from '@angular/core';\r\n import { Router } from '@angular/router';\r\n import { Observable } from 'rxjs';\r\n \r\n-export const AuthInterceptor: HttpInterceptorFn = (\r\n+export const authInterceptor: HttpInterceptorFn = (\r\n   req: HttpRequest<unknown>,\r\n   next: HttpHandlerFn\r\n ): Observable<HttpEvent<unknown>> => {\r\n   const authService = inject(AuthService);\r\n"
+                },
+                {
+                    "date": 1740275890388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n import { inject } from '@angular/core';\r\n import { Router } from '@angular/router';\r\n import { Observable } from 'rxjs';\r\n \r\n-export const authInterceptor: HttpInterceptorFn = (\r\n+export const authInterceptor: HttpInterceptorFn = ( // lowercase 'authInterceptor'\r\n   req: HttpRequest<unknown>,\r\n   next: HttpHandlerFn\r\n ): Observable<HttpEvent<unknown>> => {\r\n   const authService = inject(AuthService);\r\n"
+                },
+                {
+                    "date": 1740276410605,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n import { inject } from '@angular/core';\r\n import { Router } from '@angular/router';\r\n import { Observable } from 'rxjs';\r\n \r\n-export const authInterceptor: HttpInterceptorFn = ( // lowercase 'authInterceptor'\r\n+export const authInterceptor: HttpInterceptorFn = (\r\n   req: HttpRequest<unknown>,\r\n   next: HttpHandlerFn\r\n ): Observable<HttpEvent<unknown>> => {\r\n   const authService = inject(AuthService);\r\n"
+                },
+                {
+                    "date": 1740276475170,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n import { inject } from '@angular/core';\r\n import { Router } from '@angular/router';\r\n import { Observable } from 'rxjs';\r\n \r\n-export const authInterceptor: HttpInterceptorFn = (\r\n+export const AuthInterceptor: HttpInterceptorFn = (\r\n   req: HttpRequest<unknown>,\r\n   next: HttpHandlerFn\r\n ): Observable<HttpEvent<unknown>> => {\r\n   const authService = inject(AuthService);\r\n"
+                },
+                {
+                    "date": 1740276649377,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n import { inject } from '@angular/core';\r\n import { Router } from '@angular/router';\r\n import { Observable } from 'rxjs';\r\n \r\n-export const AuthInterceptor: HttpInterceptorFn = (\r\n+export const authInterceptor: HttpInterceptorFn = (\r\n   req: HttpRequest<unknown>,\r\n   next: HttpHandlerFn\r\n ): Observable<HttpEvent<unknown>> => {\r\n   const authService = inject(AuthService);\r\n"
+                }
+            ],
+            "date": 1740266492733,
+            "name": "Commit-0",
+            "content": "ors/auth.interceptor.ts\r\nimport { Injectable } from '@angular/core';\r\nimport { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';\r\nimport { Observable, throwError } from 'rxjs';\r\nimport { catchError } from 'rxjs/operators';\r\nimport { AuthService } from '../services/auth.service';\r\n\r\n@Injectable()\r\nexport class AuthInterceptor implements HttpInterceptor {\r\n  constructor(private authService: AuthService) {}\r\n\r\n  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {\r\n    return next.handle(request).pipe(\r\n      catchError((error: HttpErrorResponse) => {\r\n        if (error.status === 401) {\r\n          this.authService.logout();\r\n        }\r\n        return throwError(() => error);\r\n      })\r\n    );\r\n  }\r\n}"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/app/interfaces/user.interface.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1740382646572,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740382977500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,13 @@\n-// User related interfaces\r\n+// Base User Interface\r\n export interface User {\r\n     id: string;\r\n     email: string;\r\n     firstName?: string;\r\n     photoUrl?: string;\r\n }\r\n \r\n-// Authentication related interfaces\r\n+// Authentication Interfaces\r\n export interface AuthResponse {\r\n     token: string;\r\n     user: User;\r\n }\r\n@@ -25,9 +25,9 @@\n     confirmPassword: string;\r\n     terms: boolean;\r\n }\r\n \r\n-// Google authentication interfaces\r\n+// Google Authentication Interfaces\r\n export interface GoogleAuthData {\r\n     googleId: string;\r\n     email: string;\r\n     name: string;\r\n"
+                },
+                {
+                    "date": 1740383262347,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,16 @@\n     firstName?: string;\r\n     photoUrl?: string;\r\n }\r\n \r\n-\r\n+export interface GoogleUser {\r\n+    email: string;\r\n+    firstName?: string;\r\n+    lastName?: string;\r\n+    photoUrl?: string;\r\n+    id?: string;\r\n+    idToken?: string;\r\n+  }\r\n // Authentication Interfaces\r\n export interface AuthResponse {\r\n     token: string;\r\n     user: User;\r\n"
+                }
+            ],
+            "date": 1740382646572,
+            "name": "Commit-0",
+            "content": "// User related interfaces\r\nexport interface User {\r\n    id: string;\r\n    email: string;\r\n    firstName?: string;\r\n    photoUrl?: string;\r\n}\r\n\r\n// Authentication related interfaces\r\nexport interface AuthResponse {\r\n    token: string;\r\n    user: User;\r\n}\r\n\r\nexport interface LoginData {\r\n    email: string;\r\n    password: string;\r\n    remember?: boolean;\r\n}\r\n\r\nexport interface SignupData {\r\n    firstName: string;\r\n    email: string;\r\n    password: string;\r\n    confirmPassword: string;\r\n    terms: boolean;\r\n}\r\n\r\n// Google authentication interfaces\r\nexport interface GoogleAuthData {\r\n    googleId: string;\r\n    email: string;\r\n    name: string;\r\n    photoUrl: string;\r\n    idToken: string;\r\n}\r\n\r\nexport interface GoogleUser {\r\n    getBasicProfile(): {\r\n        getId(): string;\r\n        getEmail(): string;\r\n        getName(): string;\r\n        getImageUrl(): string;\r\n    };\r\n    getAuthResponse(): {\r\n        id_token: string;\r\n    };\r\n}"
+        }
+    ]
+}

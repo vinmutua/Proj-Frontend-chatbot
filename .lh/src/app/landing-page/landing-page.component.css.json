@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/landing-page/landing-page.component.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1739872199472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1739872199472,
+            "name": "Commit-0",
+            "content": ".hollow-text {\r\n    -webkit-text-stroke: 2px black; /* Creates a hollow text effect */\r\n    color: transparent;\r\n  }"
+        }
+    ]
+}

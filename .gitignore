@@ -40,3 +40,44 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Environment files
+/src/environments/*.js
+/src/environments/*.js.map
+.env
+.env.*
+!.env.example
+
+# Package manager locks (uncomment based on your preference)
+# package-lock.json
+# yarn.lock
+
+# Production build files
+/www
+/platforms
+/plugins
+
+# Testing files
+/e2e/*.js
+/e2e/*.map
+/cypress/videos/
+/cypress/screenshots/
+
+# Optional: Dependencies source maps
+*.js.map
+*.css.map
+
+# Optional: IDE specific
+.vs/
+*.swp
+*.swo
+.vim
+*.sublime-project
+*~
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
