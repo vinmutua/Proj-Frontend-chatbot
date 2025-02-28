@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css']
 })
-export class LandingPageComponent {
+export class LandingPageComponent implements OnInit {
   //  START NAV
   isMenuOpen = false;
 
@@ -73,6 +73,20 @@ type(): void {
 }
 
 // END TYPE EFFECT
+disablePageScroll(disable: boolean) {
+  if (disable) {
+    document.body.style.overflow = 'hidden'; // Disable scrolling
+  } else {
+    document.body.style.overflow = 'auto'; // Enable scrolling
+  }
+}
 
+disableScroll(): void {
+  document.body.style.overflow = 'hidden';
+}
+
+enableScroll(): void {
+  document.body.style.overflow = 'auto';
+}
 
 }

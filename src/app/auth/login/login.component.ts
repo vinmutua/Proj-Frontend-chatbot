@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   isLoading = false;
   errorMessage = '';
+  successMessage = '';
 
   constructor(
     private fb: FormBuilder,
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
     this.initForm();
   }
 
+  
   private initForm(): void {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -39,7 +41,11 @@ export class LoginComponent implements OnInit {
     try {
       this.isLoading = true;
       await this.authService.googleSignIn();  // Changed from googleLogin to googleSignIn
-      this.router.navigate(['/dashboard']);
+      this.successMessage = 'Successfully logged in with Google!';
+      setTimeout(() => {
+        this.successMessage = '';
+        this.router.navigate(['/dashboard']);
+      }, 2000);
     } catch (error: unknown) {
       this.errorMessage = error instanceof Error ? 
         error.message : 'Google sign-in failed. Please try again.';
@@ -58,7 +64,11 @@ export class LoginComponent implements OnInit {
       this.isLoading = true;
       const { email, password } = this.loginForm.value;
       await this.authService.login(email, password);
-      this.router.navigate(['/dashboard']);
+      this.successMessage = 'Login successful! Redirecting...';
+      setTimeout(() => {
+        this.successMessage = '';
+        this.router.navigate(['/dashboard']);
+      }, 2000);
     } catch (error: unknown) {
       this.errorMessage = error instanceof Error ? 
         error.message : 'Login failed. Please try again.';

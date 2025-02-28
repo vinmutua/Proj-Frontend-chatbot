@@ -15,6 +15,7 @@ export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
   isLoading = false;
   errorMessage = '';
+  successMessage = '';
 
   constructor(
     private fb: FormBuilder,
@@ -28,7 +29,6 @@ export class SignupComponent implements OnInit {
 
   private initializeForm(): void {
     this.signupForm = this.fb.group({
-      firstName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [
         Validators.required,
@@ -75,7 +75,11 @@ export class SignupComponent implements OnInit {
     try {
       this.isLoading = true;
       await this.authService.googleSignIn();
-      this.router.navigate(['/dashboard']);
+      this.successMessage = 'You have successfully signed up with Google';
+      setTimeout(() => {
+        this.successMessage = '';
+        this.router.navigate(['/dashboard']);
+      }, 2000);
     } catch (error: unknown) {
       this.errorMessage = error instanceof Error ? 
         error.message : 'Google sign-up failed. Please try again.';

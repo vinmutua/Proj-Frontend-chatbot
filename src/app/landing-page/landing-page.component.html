@@ -69,15 +69,29 @@
   </div>
 
   <!-- Right Image -->
-  <div class="w-full md:w-1/2 bg-cover bg-center md:min-h-screen h-50 md:h-auto relative rounded-bl-[120px]"
-    style="background-image: url('assets/images/hero.jpg');">
-    <a routerLink="/about"
-      class="hidden md:block absolute top-5 left-8 font-sans text-2xl text-white hover:text-gray-900 py-2">Solution</a>
-    <button type="button"
-      class="hidden md:inline-flex absolute top-4 right-6 py-2 px-3 items-center gap-x-2 text-xl font-medium rounded-lg border border-white text-white hover:border-white/70 hover:text-white/70 focus:outline-none focus:border-white/70 focus:text-white/70 disabled:opacity-50 disabled:pointer-events-none">
-      Contact 
-    </button>
-  </div>
+  <div class="w-full md:w-1/2 relative">
+    <!-- Base gray background -->
+    <div class="absolute inset-0 bg-gray-50"></div>
+    
+    <!-- Image container with overlay -->
+    <div class="relative w-full h-full md:min-h-screen rounded-bl-[120px] overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center"
+             style="background-image: url('assets/images/hero.jpg');">
+        </div>
+        
+        <!-- Navigation elements -->
+        <div class="relative z-10">
+            <a routerLink="/about"
+               class="hidden md:block absolute top-5 left-8 font-sans text-2xl text-white hover:text-gray-900 py-2">
+               Solution
+            </a>
+            <button type="button"
+                    class="hidden md:inline-flex absolute top-4 right-6 py-2 px-3 items-center gap-x-2 text-xl font-medium rounded-lg border border-white text-white hover:border-white/70 hover:text-white/70 focus:outline-none focus:border-white/70 focus:text-white/70 disabled:opacity-50 disabled:pointer-events-none">
+                Contact 
+            </button>
+        </div>
+    </div>
+</div>
 </div>
 
 <!-- HERO SECTION -->
@@ -88,7 +102,7 @@
 
 <section class="flex flex-wrap min-h-screen">
   <!-- Left Section -->
-  <div class="w-full md:w-1/2 flex flex-col justify-center items-start p-8 lg:p-16  bg-gray-50 ">
+  <div (mouseenter)="enableScroll()" class="  w-full md:w-1/2 flex flex-col justify-center items-start p-8 lg:p-16  bg-gray-50 ">
     <div class="mb-8">
       <h1 data-aos="fade-right" data-aos-delay="100" class="text-4xl lg:text-5xl font-bold  text-indigo-900 mb-4">
         Seamless interactions intelligent 
@@ -113,108 +127,183 @@
     
     </div>
     <div class="flex items-center">
-      <p class="text-gray-700 mr-4">12800+ Users trust AI</p>
-      <div class="flex space-x-2">
-        <!-- User avatars -->
-      </div>
-    </div>
-  </div>
-
-  <!-- Right Section -->
-  <div class="w-full md:w-1/2 p-8 flex items-center justify-center  bg-gray-50">
-    <div
-      class="relative bg-gradient-to-r from-pink-100
-      via-purple-200 to-yellow-200 rounded-3xl p-8 shadow-lg w-full max-w-xl
-       h-[600px] flex flex-col">
- <!-- BOTS PROFILE -->
-       <div class="absolute left-0 right-0 top-0 bg-gradient-to-r from-blue-200 via-purple-300 to-blue-200 p-4 rounded-t-3xl flex items-center gap-4">
-         <img src="https://storage.googleapis.com/a1aa/image/Imnxmi8BVCLqN7eV30Sm_Q3O5MdablVV_tGHTVHN86g.jpg" 
-         alt="AI Assistant" 
-         class="w-12 h-12 rounded-full border-2 border-white shadow-md"
-         />
-         <div>
-           <h3 class="font-bold text-gray-800">KAziBot AI Assistant</h3>
-           <p class="text-sm text-gray-600">Always here to help</p>
-         </div>
-       </div>
-       <!-- END BOTS PROFILE -->
-
-      <!-- Scrollable Chat Content -->
-      <div class="flex-1 overflow-y-auto mb-4 space-y-4" style="scrollbar-width: thin;">
-        <!-- Chat Messages Container -->
-        <div class="space-y-4">
-          <!-- user chat bubbles -->
-          <div class="flex justify-end mb-4 mt-16">
-            <div class="flex items-end">
-              <div class="bg-purple-500 text-white p-3 rounded-l-lg rounded-br-lg max-w-xs">
-                <p>Hello, AI!</p>
-                <span class="text-xs text-gray-200 block mt-1">10:00 AM</span>
-              </div>
-              <img alt="User profile picture" class="w-10 h-10 rounded-full ml-2" height="40"
-                src="https://storage.googleapis.com/a1aa/image/8cGgub0ZDp8vpcKG5c2L1Qr39sp6PUBlOmPXXzv94zA.jpg"
-                width="40" />
-            </div>
-          </div>
-          <!-- AI chat bubbles -->
-
-          <div class="flex justify-start mb-4">
-            <div class="flex items-end">
-              <img alt="AI profile picture" class="w-10 h-10 rounded-full mr-2" height="40"
-                src="https://storage.googleapis.com/a1aa/image/Imnxmi8BVCLqN7eV30Sm_Q3O5MdablVV_tGHTVHN86g.jpg"
-                width="40" />
-              <div class="bg-yellow-100 text-gray-800 p-3 rounded-r-lg rounded-bl-lg max-w-xs">
-                <p>Hello! How can I assist you today?</p>
-                <span class="text-xs text-gray-500 block mt-1">10:01 AM</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="space-y-4">
-          <!-- user chat bubbles -->
-          <div class="flex justify-end mb-4">
-            <div class="flex items-end">
-              <div class="bg-purple-500 text-white p-3 rounded-l-lg rounded-br-lg max-w-xs">
-                <p>Hello, AI!</p>
-                <span class="text-xs text-gray-200 block mt-1">10:00 AM</span>
-              </div>
-              <img alt="User profile picture" class="w-10 h-10 rounded-full ml-2" height="40"
-                src="https://storage.googleapis.com/a1aa/image/8cGgub0ZDp8vpcKG5c2L1Qr39sp6PUBlOmPXXzv94zA.jpg"
-                width="40" />
-            </div>
-          </div>
-          <!-- AI chat bubbles -->
-
-          <div class="flex justify-start mb-4">
-            <div class="flex items-end">
-              <img alt="AI profile picture" class="w-10 h-10 rounded-full mr-2" height="40"
-                src="https://storage.googleapis.com/a1aa/image/Imnxmi8BVCLqN7eV30Sm_Q3O5MdablVV_tGHTVHN86g.jpg"
-                width="40" />
-              <div class="bg-yellow-100 text-gray-800 p-3 rounded-r-lg rounded-bl-lg max-w-xs">
-                <p>Hello! How can I assist you today?</p>
-                <span class="text-xs text-gray-500 block mt-1">10:01 AM</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <!-- Avatars -->
+      <div class="flex -space-x-2">
+        <div class="hs-tooltip inline-block">
+          <img class="hs-tooltip-toggle relative inline-block size-[30px] rounded-full ring-2 ring-white hover:z-10" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Avatar">
         
-      </div>
-      
-
-      <!-- Fixed Input Section at Bottom -->
-      <div class="absolute bottom-8 left-8 right-8 bg-transparent">
-        <div class="flex items-center bg-white rounded-full shadow-md p-2 w-full max-w-lg">
-          <div class="flex items-center justify-center w-20 h-10 bg-gray-100 rounded-full px-4 py-2  mr-1">
-            <span class="text-gray-500">Prompt</span>
-          </div>
-          <input type="text" class="py-3 px-4 block w-full border-gray-200 rounded-2xl text-sm focus:border-blue-100 focus:ring-blue-100 disabled:opacity-50 disabled:pointer-events-none ">
-          <button
-            class="ml-4 bg-purple-500 hover:bg-purple-600 text-white rounded-full p-2 w-10 h-10 flex items-center justify-center">
-            <i class="fas fa-arrow-up"></i>
-          </button>
         </div>
+        <div class="hs-tooltip inline-block">
+          <img class="hs-tooltip-toggle relative inline-block size-[30px] rounded-full ring-2 ring-white hover:z-10" src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Avatar">
+         
+        </div>
+        <div class="hs-tooltip inline-block">
+          <img class="hs-tooltip-toggle relative inline-block size-[30px] rounded-full ring-2 ring-white hover:z-10" src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80" alt="Avatar">
+         
+        </div>
+        <div class="hs-tooltip inline-block">
+          <img class="hs-tooltip-toggle relative inline-block size-[30px] rounded-full ring-2 ring-white hover:z-10" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Avatar">
+         
+        </div>
+      </div>
+      <div class="flex space-x-2">
+        <p class="text-gray-700 mr-4">12800+ Users trust AI</p>
       </div>
     </div>
   </div>
+
+  <!-- Right Section - Chat Container -->
+  <div (mouseenter)="disableScroll()" (mouseleave)="enableScroll()" class="w-full md:w-1/2 p-8 flex items-center justify-center bg-gray-50 h-screen overflow-hidden">
+    <div class="relative bg-gradient-to-r from-pink-100 via-purple-200 to-yellow-200 rounded-3xl shadow-lg w-full max-w-xl h-[600px] flex flex-col">
+        <!-- Fixed Header - No changes needed -->
+        <div class="absolute left-0 right-0 top-0 bg-gradient-to-r from-blue-200 via-purple-300 to-blue-200 p-4 rounded-t-3xl flex items-center gap-4 z-10">
+            <div class="relative inline-block">
+                <img src="assets/images/chatbot-icon.png" 
+                     alt="AI Assistant" 
+                     class="inline-block size-[46px] rounded-full border-2 border-white shadow-md"
+                />
+                <span class="absolute bottom-0 end-0 block size-3 rounded-full ring-2 ring-white bg-teal-400 dark:ring-neutral-900"></span>
+            </div>
+            <div>
+                <h3 class="font-bold text-gray-800">KAziBot AI Assistant</h3>
+                <p class="text-sm text-gray-600">Always here to help</p>
+            </div>
+        </div>
+
+        <!-- Scrollable Messages Container -->
+        <div class="flex-1 overflow-y-auto mt-20 mb-20 px-8 scrollbar-hide">
+            <div class="space-y-4">
+                <div class="space-y-4">
+                    <!-- user chat bubbles -->
+                    <div class="flex justify-end mb-4 mt-16">
+                      <div class="flex items-end">
+                        <div class="bg-purple-500 text-white p-3 rounded-l-lg rounded-br-lg max-w-xs">
+                          <p>Hello, AI!</p>
+                          <span class="text-xs text-gray-200 block mt-1">10:00 AM</span>
+                        </div>
+                        <img alt="User profile picture" class="w-10 h-10 rounded-full ml-2" height="40"
+                          src="https://storage.googleapis.com/a1aa/image/8cGgub0ZDp8vpcKG5c2L1Qr39sp6PUBlOmPXXzv94zA.jpg"
+                          width="40" />
+                      </div>
+                    </div>
+                    <!-- AI chat bubbles -->
+          
+                    <div class="flex justify-start mb-4">
+                      <div class="flex items-end">
+                        <img alt="AI profile picture" class="w-10 h-10 rounded-full mr-2" height="40"
+                          src="assets/images/chatbot-icon.png"
+                          width="40" />
+                        <div class="bg-yellow-100 text-gray-800 p-3 rounded-r-lg rounded-bl-lg max-w-xs">
+                          <p>Hello! How can I assist you today?</p>
+                          <span class="text-xs text-gray-500 block mt-1">10:01 AM</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="space-y-4">
+                    <!-- user chat bubbles -->
+                    <div class="flex justify-end mb-4">
+                      <div class="flex items-end">
+                        <div class="bg-purple-500 text-white p-3 rounded-l-lg rounded-br-lg max-w-xs">
+                          <p>Hello, AI!</p>
+                          <span class="text-xs text-gray-200 block mt-1">10:00 AM</span>
+                        </div>
+                        <img alt="User profile picture" class="w-10 h-10 rounded-full ml-2" height="40"
+                          src="https://storage.googleapis.com/a1aa/image/8cGgub0ZDp8vpcKG5c2L1Qr39sp6PUBlOmPXXzv94zA.jpg"
+                          width="40" />
+                      </div>
+                    </div>
+                    <!-- AI chat bubbles -->
+          
+                    <div class="flex justify-start mb-4">
+                      <div class="flex items-end">
+                        <img alt="AI profile picture" class="w-10 h-10 rounded-full mr-2" height="40"
+                          src="assets/images/chatbot-icon.png"
+                          width="40" />
+                        <div class="bg-yellow-100 text-gray-800 p-3 rounded-r-lg rounded-bl-lg max-w-xs">
+                          <p>Hello! How can I assist you today?</p>
+                          <span class="text-xs text-gray-500 block mt-1">10:01 AM</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="space-y-4">
+                    <!-- user chat bubbles -->
+                    <div class="flex justify-end mb-4">
+                      <div class="flex items-end">
+                        <div class="bg-purple-500 text-white p-3 rounded-l-lg rounded-br-lg max-w-xs">
+                          <p>Hello, AI!</p>
+                          <span class="text-xs text-gray-200 block mt-1">10:00 AM</span>
+                        </div>
+                        <img alt="User profile picture" class="w-10 h-10 rounded-full ml-2" height="40"
+                          src="https://storage.googleapis.com/a1aa/image/8cGgub0ZDp8vpcKG5c2L1Qr39sp6PUBlOmPXXzv94zA.jpg"
+                          width="40" />
+                      </div>
+                    </div>
+                    <!-- AI chat bubbles -->
+          
+                    <div class="flex justify-start mb-4">
+                      <div class="flex items-end">
+                        <img alt="AI profile picture" class="w-10 h-10 rounded-full mr-2" height="40"
+                          src="assets/images/chatbot-icon.png"
+                          width="40" />
+                        <div class="bg-yellow-100 text-gray-800 p-3 rounded-r-lg rounded-bl-lg max-w-xs">
+                          <p>Hello! How can I assist you today?</p>
+                          <span class="text-xs text-gray-500 block mt-1">10:01 AM</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="space-y-4">
+                    <!-- user chat bubbles -->
+                    <div class="flex justify-end mb-4">
+                      <div class="flex items-end">
+                        <div class="bg-purple-500 text-white p-3 rounded-l-lg rounded-br-lg max-w-xs">
+                          <p>Hello, AI!</p>
+                          <span class="text-xs text-gray-200 block mt-1">10:00 AM</span>
+                        </div>
+                        <img alt="User profile picture" class="w-10 h-10 rounded-full ml-2" height="40"
+                          src="https://storage.googleapis.com/a1aa/image/8cGgub0ZDp8vpcKG5c2L1Qr39sp6PUBlOmPXXzv94zA.jpg"
+                          width="40" />
+                      </div>
+                    </div>
+                    <!-- AI chat bubbles -->
+          
+                    <div class="flex justify-start mb-4">
+                      <div class="flex items-end">
+                        <img alt="AI profile picture" class="w-10 h-10 rounded-full mr-2" height="40"
+                          src="assets/images/chatbot-icon.png"
+                          width="40" />
+                        <div class="bg-yellow-100 text-gray-800 p-3 rounded-r-lg rounded-bl-lg max-w-xs">
+                          <p>Hello! How can I assist you today?</p>
+                          <span class="text-xs text-gray-500 block mt-1">10:01 AM</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+        <!-- Fixed Input Section -->
+        <div class="absolute bottom-0 left-0 right-0 p-8 bg-transparent z-10">
+            <div class="flex items-center bg-white rounded-full shadow-md p-2 w-full max-w-lg">
+                <div class="flex items-center justify-center w-20 h-10 bg-gray-100 rounded-full px-4 py-2  mr-1">
+                  <span class="text-gray-500">Prompt</span>
+                </div>
+                <input type="text" class="py-3 px-4 block w-full border-gray-200 rounded-2xl text-sm focus:border-blue-100 focus:ring-blue-100 disabled:opacity-50 disabled:pointer-events-none ">
+                <button
+                  class="ml-4 bg-purple-500 hover:bg-purple-600 text-white rounded-full p-2 w-10 h-10 flex items-center justify-center">
+                  <i class="fas fa-arrow-up"></i>
+                </button>
+              </div>
+        </div>
+    </div>
+</div>
+
+
+
 </section>
 
 <!-- CHAT-WIDGET END -->

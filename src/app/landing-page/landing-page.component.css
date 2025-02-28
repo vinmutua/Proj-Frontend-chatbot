@@ -1,4 +1,36 @@
+/* Keep only necessary styles */
 .hollow-text {
-    -webkit-text-stroke: 2px black; /* Creates a hollow text effect */
+    -webkit-text-stroke: 2px black;
     color: transparent;
-  }
+}
+
+/* Hide scrollbar while maintaining functionality */
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Container styles */
+.chat-container {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.content-container {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Messages container */
+.messages-container {
+    position: relative;
+    height: calc(100% - 8rem); /* Subtract header and input heights */
+    overflow-y: auto;
+    margin: 4rem 0;
+}
