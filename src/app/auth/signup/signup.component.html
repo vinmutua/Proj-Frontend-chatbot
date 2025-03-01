@@ -68,55 +68,87 @@
     </div>
     
 
-    <div class="w-full max-w-xl p-6 space-y-8 sm:p-8 bg-white rounded-lg shadow-xl dark:bg-gray-800">
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+    <div class="w-full max-w-xl p-6 space-y-4 sm:p-8 bg-white rounded-lg shadow-xl dark:bg-gray-800">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
             Create an account
         </h2>
 
         <!-- Google Sign Up Button -->
         <button 
-            type="button" 
+            type="button"
+            data-google-signup
             (click)="googleSignup()"
-            [disabled]="isLoading"
-            class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
-            <svg *ngIf="!isLoading" class="w-4 h-auto" width="46" height="47" viewBox="0 0 46 47" fill="none">
-                <path d="M46 24.0287C46 22.09 45.8533 20.68 45.5013 19.2112H23.4694V27.9356H36.4069C36.1429 30.1094 34.7347 33.37 31.5957 35.5731L31.5663 35.8669L38.5191 41.2719L38.9885 41.3306C43.4477 37.2181 46 31.1669 46 24.0287Z" fill="#4285F4"/>
-                <path d="M23.4694 47C29.8061 47 35.1161 44.9144 39.0179 41.3012L31.625 35.5437C29.6301 36.9244 26.9898 37.8937 23.4987 37.8937C17.2793 37.8937 12.0281 33.7812 10.1505 28.1412L9.88649 28.1706L2.61097 33.7812L2.52296 34.0456C6.36608 41.7125 14.287 47 23.4694 47Z" fill="#34A853"/>
-                <path d="M10.1212 28.1413C9.62245 26.6725 9.32908 25.1156 9.32908 23.5C9.32908 21.8844 9.62245 20.3275 10.0918 18.8588V18.5356L2.75765 12.8369L2.52296 12.9544C0.909439 16.1269 0 19.7106 0 23.5C0 27.2894 0.909439 30.8731 2.49362 34.0456L10.1212 28.1413Z" fill="#FBBC05"/>
-                <path d="M23.4694 9.07688C27.8699 9.07688 30.8622 10.9863 32.5344 12.5725L39.1645 6.11C35.0867 2.32063 29.8061 0 23.4694 0C14.287 0 6.36607 5.2875 2.49362 12.9544L10.0918 18.8588C11.9987 13.1894 17.25 9.07688 23.4694 9.07688Z" fill="#EB4335"/>
+            [disabled]="isLoading || isGoogleLoading"
+            class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-medium rounded-lg border hover:bg-gray-50 dark:hover:bg-gray-700 relative overflow-hidden transition-all duration-300"
+            [ngClass]="{
+                'bg-white text-gray-700 border-gray-200': !isGoogleLoading,
+                'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed': isGoogleLoading,
+                'dark:bg-gray-800 dark:border-gray-600 dark:text-gray-300': true,
+                'hover:bg-gray-50 active:bg-gray-100': !isGoogleLoading,
+                'opacity-75': isGoogleLoading
+            }"
+        >
+            <!-- Ripple effect -->
+            <span class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300"
+                  [ngClass]="{'opacity-10': isGoogleLoading}">
+            </span>
+            <!-- Google Icon -->
+            <svg *ngIf="!isGoogleLoading" class="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
             </svg>
-            <svg *ngIf="isLoading" class="inline w-4 h-4 animate-spin" viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"/>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+
+            <!-- Loading Spinner -->
+            <svg *ngIf="isGoogleLoading" class="animate-spin h-4 w-4 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
-            {{ isLoading ? 'Signing up...' : 'Sign up with Google' }}
+
+            <!-- Button Text -->
+            <span>{{ isGoogleLoading ? 'Signing up with Google...' : 'Continue with Google' }}</span>
         </button>
 
+     
+
+        <!-- Divider -->
+        <div class="relative my-3">
+            <div class="absolute inset-0 flex items-center">
+                <div class="w-full border-t border-gray-200 dark:border-gray-600"></div>
+            </div>
+            <div class="relative flex justify-center text-sm">
+                <span class="px-2 bg-white text-gray-500 dark:bg-gray-800 dark:text-gray-400">or</span>
+            </div>
+        </div>
+
         <!-- Registration Form -->
-        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="mt-8 space-y-6">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="space-y-5">
 
             <!-- Email Field -->
-            <div class="h-[65px]">
+            <div class="h-[75px]">  <!-- Increased from 60px to 75px -->  <!-- Increased from 60px to 75px -->
                 <label for="email" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
                 <input 
                     type="email" 
                     id="email" 
                     formControlName="email"
-                    [attr.aria-invalid]="signupForm.get('email')?.invalid && signupForm.get('email')?.touched"
-                    aria-describedby="email-error"
+                    [attr.disabled]="isGoogleLoading"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                    [ngClass]="{'border-red-500': signupForm.get('email')?.invalid && signupForm.get('email')?.touched}"
+                    [ngClass]="{
+                        'border-red-500': signupForm.get('email')?.invalid && signupForm.get('email')?.touched,
+                        'opacity-50 cursor-not-allowed': isGoogleLoading
+                    }"
                     placeholder="name@company.com" 
                     required 
                 />
-                <div class="min-h-[20px] text-sm text-red-600 dark:text-red-500">
+                <div class="min-h-[24px] text-sm text-red-600 dark:text-red-500"> <!-- Increased from 20px to 24px --> <!-- Increased from 20px to 24px -->
                     <p *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['required']">Email is required</p>
                     <p *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.errors?.['email']">Please enter a valid email</p>
                 </div>
             </div>
 
             <!-- Password Field -->
-            <div class="h-[65px]">
+            <div class="h-[75px]">  <!-- Increased from 60px to 75px -->  <!-- Increased from 60px to 75px -->
                 <label for="password" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Your password</label>
                 <input 
                     type="password" 
@@ -129,13 +161,13 @@
                     placeholder="••••••••" 
                     required 
                 />
-                <div class="min-h-[20px]  mb-1 text-sm text-red-600 dark:text-red-500">
+                <div class="min-h-[24px] text-sm text-red-600 dark:text-red-500"> <!-- Increased from 20px to 24px -->
                     <p *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.errors?.['required']">Password is required</p>
                 </div>
             </div>
 
             <!-- Confirm Password Field -->
-            <div class="h-[85px]">
+            <div class="h-[85px]">  <!-- Increased from 75px to 85px -->  <!-- Increased from 75px to 85px -->
                 <label for="confirmPassword" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
                 <input 
                     type="password" 
@@ -148,14 +180,14 @@
                     placeholder="••••••••" 
                     required 
                 />
-                <div class="min-h-[20px] text-sm text-red-600 dark:text-red-500">
+                <div class="min-h-[24px] text-sm text-red-600 dark:text-red-500">
                     <p *ngIf="signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.errors?.['required']">Please confirm your password</p>
                     <p *ngIf="signupForm.errors?.['passwordMismatch'] && signupForm.get('confirmPassword')?.touched">Passwords do not match</p>
                 </div>
             </div>
 
             <!-- Terms Checkbox -->
-            <div class="h-[30px]">
+            <div class="h-[35px] mb-2"> <!-- Increased from 25px to 35px --> <!-- Increased from 25px to 35px -->
                 <div class="flex items-start">
                     <div class="flex items-center h-5">
                         <input 
@@ -174,7 +206,7 @@
                         </label>
                     </div>
                 </div>
-                <div class="min-h-[20px] text-sm text-red-600 dark:text-red-500">
+                <div class="min-h-[24px] text-sm text-red-400 dark:text-red-500"> <!-- Increased from 20px to 24px --> <!-- Increased from 20px to 24px -->
                     <p *ngIf="signupForm.get('terms')?.touched && signupForm.get('terms')?.invalid">You must accept the terms and conditions</p>
                 </div>
             </div>
@@ -182,19 +214,27 @@
             <!-- Submit Button -->
             <button 
                 type="submit"
-                [disabled]="signupForm.invalid || isLoading"
-                class="w-full text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                [disabled]="signupForm.invalid || isLoading || isGoogleLoading"
+                class="w-full text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center mt-2 relative min-h-[42px] flex items-center justify-center"
                 [ngClass]="{
-                    'bg-blue-600 hover:bg-blue-700': !signupForm.invalid && !isLoading,
-                    'bg-gray-400': signupForm.invalid || isLoading
+                    'bg-blue-600 hover:bg-blue-700': !signupForm.invalid && !isLoading && !isGoogleLoading,
+                    'bg-gray-400': signupForm.invalid || isLoading || isGoogleLoading
                 }"
             >
-                <span *ngIf="isLoading">Creating account...</span>
-                <span *ngIf="!isLoading">Create account</span>
+                <span *ngIf="isLoading" class="inline-flex items-center gap-2">
+                    <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Creating account...
+                </span>
+                <span *ngIf="!isLoading">
+                    Create account
+                </span>
             </button>
 
             <!-- Sign In Link -->
-            <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+            <div class="text-sm font-medium text-gray-500 dark:text-gray-300 mt-4">
                 Already have an account? <a routerLink="/login" class="text-blue-600 hover:underline dark:text-blue-500">Sign in</a>
             </div>
         </form>
