@@ -77,7 +77,7 @@
         <button 
             type="button"
             data-google-signup
-            (click)="googleSignup()"
+            (click)="onGoogleSignup()" 
             [disabled]="isLoading || isGoogleLoading"
             class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-medium rounded-lg border hover:bg-gray-50 dark:hover:bg-gray-700 relative overflow-hidden transition-all duration-300"
             [ngClass]="{
@@ -109,6 +109,8 @@
             <!-- Button Text -->
             <span>{{ isGoogleLoading ? 'Signing up with Google...' : 'Continue with Google' }}</span>
         </button>
+
+      
 
      
 
