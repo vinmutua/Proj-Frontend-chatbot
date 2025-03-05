@@ -76,7 +76,7 @@
     <!-- Image container with overlay -->
     <div class="relative w-full h-full md:min-h-screen rounded-bl-[120px] overflow-hidden">
         <div class="absolute inset-0 bg-cover bg-center"
-             style="background-image: url('assets/images/hero.jpg');">
+             [style.backgroundImage]="'url(/assets/images/hero.jpg)'">
         </div>
         
         <!-- Navigation elements -->
@@ -693,3 +693,4 @@
   </div>
   <!-- End Grid -->
 </footer>
+<app-messenger-chat></app-messenger-chat>

@@ -2,27 +2,47 @@
 <html lang="en">
 
 <head>
+  <!-- Meta tags -->
   <meta charset="utf-8">
-  <title>FrontUi</title>
+  <title>KaziBot</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script defer src="https://cdn.jsdelivr.net/npm/preline@2.0.3/dist/preline.min.js"></script>
+  
+  <!-- CSP Policy - Allow everything (*) -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;
+    script-src * 'unsafe-inline' 'unsafe-eval';
+    connect-src * 'unsafe-inline';
+    img-src * data: blob: 'unsafe-inline';
+    frame-src *;
+    style-src * 'unsafe-inline';
+    font-src * data:;">
+  
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <!-- scroll effect -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Capriola&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
+  
+  <!-- External Scripts -->
+  <script defer src="https://cdn.jsdelivr.net/npm/preline@2.0.3/dist/preline.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  
+  <!-- Facebook SDK -->
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        xfbml: true,
+        version: 'v18.0',
+        appId: '2067296117108267'
+      });
+    };
 
-    <!-- GOOOGLE SDK -->
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <meta name="google-signin-client_id" content="YOUR_ACTUAL_GOOGLE_CLIENT_ID">
-  <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
 </head>
 
 <body>

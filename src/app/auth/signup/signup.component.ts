@@ -48,7 +48,10 @@ export class SignupComponent implements OnInit, OnDestroy {
 
   private initializeForm(): void {
     this.signupForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [
+        Validators.required,
+        Validators.email
+      ]],
       password: ['', [
         Validators.required,
         Validators.minLength(8),
@@ -59,6 +62,14 @@ export class SignupComponent implements OnInit, OnDestroy {
     }, {
       validators: this.passwordMatchValidator()
     });
+
+    // Log form values changes for debugging
+    this.signupForm.valueChanges
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(value => {
+        console.log('Form value changed:', value);
+        this.onFormValueChanged();
+      });
   }
 
   async onSubmit(): Promise<void> {
@@ -70,13 +81,17 @@ export class SignupComponent implements OnInit, OnDestroy {
       this.isLoading = true;
       this.errorMessage = '';
       this.successMessage = '';
+
+      const formData = this.signupForm.value;
+      console.log('Sending signup data:', formData); // Add this for debugging
       
-      await this.authService.traditionalSignup(this.signupForm.value);
+      await this.authService.traditionalSignup(formData);
       this.successMessage = 'Account created successfully!';
       setTimeout(() => {
         this.router.navigate(['/login']);
       }, 2000);
     } catch (error: any) {
+      console.error('Signup error details:', error); // Add this for debugging
       this.handleError(error);
     } finally {
       this.isLoading = false;

@@ -23,8 +23,8 @@ export interface LoginData {
 export interface SignupData {
     email: string;
     password: string;
-    confirmPassword: string;
-    terms: boolean;
+    confirmPassword?: string;  // Backend might not expect this
+    terms: boolean;           // Backend might not expect this
 }
 
 export interface AuthFormError {

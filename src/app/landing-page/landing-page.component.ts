@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
+import { MessengerChatComponent } from '../components/messenger-chat/messenger-chat.component';
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [CommonModule,RouterModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MessengerChatComponent
+  ],
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css']
 })
