@@ -19,12 +19,22 @@
     "module": "ES2022",
     "typeRoots": [
       "node_modules/@types",
-      "src/types"    ]
+      "src/app/types"
+    ],
+    "paths": {
+      "preline": ["./src/app/types/preline.d.ts"]
+    },
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/app/types/**/*.d.ts"
+  ]
 }

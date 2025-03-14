@@ -3,13 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --host 0.0.0.0 --disable-host-check",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
   "dependencies": {
+    "@abacritt/angularx-social-login": "^2.3.0",
     "@angular/animations": "^19.1.0",
     "@angular/common": "^19.1.0",
     "@angular/compiler": "^19.1.0",
@@ -18,12 +19,16 @@
     "@angular/platform-browser": "^19.1.0",
     "@angular/platform-browser-dynamic": "^19.1.0",
     "@angular/router": "^19.1.0",
+    "@material/ripple": "^14.0.0",
+    "@material/tooltip": "^14.0.0",
+    "@preline/dropdown": "^3.0.0",
     "@types/aos": "^3.0.7",
     "aos": "^2.3.4",
     "crypto-js": "^4.2.0",
     "flowbite": "^3.1.2",
     "flowbite-react": "^0.10.2",
     "ngx-facebook-messenger": "^2.1.0",
+    "preline": "^3.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.6.0",
     "zone.js": "~0.15.0"
@@ -35,13 +40,15 @@
     "@tailwindcss/forms": "^0.5.10",
     "@types/crypto-js": "^4.2.2",
     "@types/jasmine": "~5.1.0",
+    "autoprefixer": "^10.4.21",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "tailwindcss": "^3.4.1",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
     "typescript": "~5.5.0"
   }
 }

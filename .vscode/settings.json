@@ -2,5 +2,14 @@
     "local-history.browser.descending": true,
     "files.associations": {
         "*.css": "postcss"
-      }
+    },
+    "remote.portsAttributes": {
+        "4200": {
+            "protocol": "http",
+            "label": "Angular Dev Server",
+            "onAutoForward": "notify"
+        }
+    },
+    "remote.autoForwardPorts": true,
+    "remote.autoForwardPortsSource": "process"
 }

@@ -1,27 +1,26 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule, ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AuthService } from '../../services/auth.service';
-import { AuthFormError, ErrorCode, GoogleAuthErrorCode } from '../../interfaces/user.interface';
+import { AuthFormError } from '../../interfaces/user.interface';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit, OnDestroy {
   loginForm!: FormGroup;
   isLoading = false;
-  isGoogleLoading = false;
   errorMessage = '';
   successMessage = '';
   returnUrl: string = '/';
-  formErrors: AuthFormError = {}; // Add this
+  formErrors: AuthFormError = {};
   private destroy$ = new Subject<void>();
 
   constructor(
@@ -31,21 +30,13 @@ export class LoginComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute
   ) {}
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit(): void {
     this.initializeForm();
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    
-    // Add form value changes subscription
+
     this.loginForm.valueChanges
       .pipe(takeUntil(this.destroy$))
       .subscribe(() => this.onFormValueChanged());
-
-    // Initialize Google Auth
-    try {
-      await this.authService.initGoogleAuth();
-    } catch (error) {
-      console.warn('Google Auth initialization failed. Google Sign-in will be disabled.');
-    }
   }
 
   ngOnDestroy(): void {
@@ -53,7 +44,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  // Clear messages before each action
   private clearMessages(): void {
     this.errorMessage = '';
     this.successMessage = '';
@@ -65,10 +55,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       password: ['', Validators.required],
       remember: [false]
     });
-
-    this.loginForm.valueChanges
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(() => this.onFormValueChanged());
   }
 
   async onSubmit(): Promise<void> {
@@ -79,7 +65,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     try {
       this.isLoading = true;
       this.clearMessages();
-      
+
       await this.authService.traditionalLogin(this.loginForm.value);
       this.successMessage = 'Login successful!';
       setTimeout(() => {
@@ -92,29 +78,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
   }
 
-  async onGoogleLogin(): Promise<void> {
-    if (this.isGoogleLoading) return;
-
-    try {
-      this.isGoogleLoading = true;
-      this.clearMessages(); // Add this
-      
-      await this.authService.googleSignIn();
-      this.successMessage = 'Login successful!';
-      setTimeout(() => {
-        this.router.navigate([this.returnUrl]);
-      }, 1000);
-    } catch (error: any) {
-      this.handleError(error);
-    } finally {
-      this.isGoogleLoading = false;
-    }
-  }
-
   private handleError(error: any): void {
-    if (error.code === 'GOOGLE_INIT_FAILED') {
-      this.errorMessage = 'Google Sign-in is not available at the moment';
-    } else if (error.code === 'INVALID_CREDENTIALS') {
+    if (error.code === 'INVALID_CREDENTIALS') {
       this.errorMessage = 'Invalid email or password';
     } else if (error.code === 'EMAIL_NOT_VERIFIED') {
       this.errorMessage = 'Please verify your email before logging in';

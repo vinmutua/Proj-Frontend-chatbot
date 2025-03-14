@@ -5,11 +5,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
-import { 
-    AuthFormError, 
-    ErrorCode, 
-    GoogleAuthErrorCode 
-} from '../../interfaces/user.interface';
+import { AuthFormError } from '../../interfaces/user.interface';
 
 @Component({
   selector: 'app-signup',
@@ -21,10 +17,9 @@ import {
 export class SignupComponent implements OnInit, OnDestroy {
   signupForm!: FormGroup;
   isLoading = false;
-  isGoogleLoading = false;
   errorMessage = '';
   successMessage = '';
-  formErrors: AuthFormError = {}; // Add this
+  formErrors: AuthFormError = {};
   private destroy$ = new Subject<void>();
 
   constructor(
@@ -35,7 +30,6 @@ export class SignupComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initializeForm();
-    // Add form value changes subscription
     this.signupForm.valueChanges
       .pipe(takeUntil(this.destroy$))
       .subscribe(() => this.onFormValueChanged());
@@ -63,7 +57,6 @@ export class SignupComponent implements OnInit, OnDestroy {
       validators: this.passwordMatchValidator()
     });
 
-    // Log form values changes for debugging
     this.signupForm.valueChanges
       .pipe(takeUntil(this.destroy$))
       .subscribe(value => {
@@ -83,34 +76,15 @@ export class SignupComponent implements OnInit, OnDestroy {
       this.successMessage = '';
 
       const formData = this.signupForm.value;
-      console.log('Sending signup data:', formData); // Add this for debugging
-      
       await this.authService.traditionalSignup(formData);
       this.successMessage = 'Account created successfully!';
       setTimeout(() => {
         this.router.navigate(['/login']);
       }, 2000);
     } catch (error: any) {
-      console.error('Signup error details:', error); // Add this for debugging
       this.handleError(error);
     } finally {
       this.isLoading = false;
-    }
-  }
-
-  async onGoogleSignup(): Promise<void> {
-    if (this.isGoogleLoading) return;
-
-    try {
-      this.isGoogleLoading = true;
-      this.formErrors = {};
-      
-      await this.authService.googleSignIn();
-      this.router.navigate(['/dashboard']);
-    } catch (error: any) {
-      this.handleError(error);
-    } finally {
-      this.isGoogleLoading = false;
     }
   }
 
@@ -151,7 +125,6 @@ export class SignupComponent implements OnInit, OnDestroy {
     return messages;
   }
 
-  // Add password strength validator
   private createPasswordStrengthValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const value = control.value;
@@ -167,7 +140,6 @@ export class SignupComponent implements OnInit, OnDestroy {
     };
   }
 
-  // Add password match validator
   private passwordMatchValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const password = control.get('password');

@@ -5,7 +5,6 @@ import { SignupComponent } from './signup.component';
 describe('SignupComponent', () => {
   let component: SignupComponent;
   let fixture: ComponentFixture<SignupComponent>;
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [SignupComponent]

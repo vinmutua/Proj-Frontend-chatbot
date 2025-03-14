@@ -21,6 +21,16 @@ export const AUTH_ERRORS = {
   MAX_RETRIES_EXCEEDED: 'Maximum refresh retries exceeded'
 };
 
+export enum GoogleAuthErrorCode {
+  POPUP_CLOSED = 'popup_closed_by_user',
+  POPUP_BLOCKED = 'popup_blocked_by_browser',
+  INITIALIZATION_FAILED = 'initialization_failed',
+  INVALID_RESPONSE = 'invalid_response',
+  TIMEOUT = 'auth_timeout',
+  GAPI_LOAD_ERROR = 'gapi_load_error',
+  UNAUTHORIZED_ORIGIN = 'UNAUTHORIZED_ORIGIN'  // Add this line
+}
+
 export const AUTH_CONFIG = {
   TOKEN_REFRESH_INTERVAL: 840000,  // 14 minutes
   SESSION_TIMEOUT: 3600000,        // 1 hour

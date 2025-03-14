@@ -4,8 +4,7 @@
 export interface User {
     id: string;
     email: string;
-    // Removed name as it's not essential
-    photoUrl?: string;    // Optional for both auth methods
+    photoUrl?: string; 
 }
 
 // Authentication Interfaces
@@ -23,8 +22,8 @@ export interface LoginData {
 export interface SignupData {
     email: string;
     password: string;
-    confirmPassword?: string;  // Backend might not expect this
-    terms: boolean;           // Backend might not expect this
+    confirmPassword?: string;  
+    terms: boolean;           
 }
 
 export interface AuthFormError {
@@ -33,28 +32,6 @@ export interface AuthFormError {
     confirmPassword?: string;
     terms?: string;
     general?: string;
-}
-
-// Google Authentication Interfaces
-export interface GoogleAuthData {
-    email: string;
-    idToken: string;      // Required for verification
-    googleId: string;     // Required for user identification
-}
-
-export interface GoogleProfile {
-    getId(): string;
-    getEmail(): string;
-    getImageUrl(): string;
-}
-
-export interface GoogleAuthResponse {
-    id_token: string;
-}
-
-export interface GoogleUser {
-    getBasicProfile(): GoogleProfile;
-    getAuthResponse(): GoogleAuthResponse;
 }
 
 /**
@@ -98,26 +75,12 @@ export type ErrorCode =
     | 'EMAIL_NOT_VERIFIED'
     | 'ACCOUNT_DISABLED'
     | 'RATE_LIMIT_EXCEEDED'
-    | 'NETWORK_ERROR'  // Add this
+    | 'NETWORK_ERROR'
     | 'UNKNOWN_ERROR';
-
-export type GoogleAuthErrorCode = 
-    | 'GOOGLE_INIT_FAILED'
-    | 'GOOGLE_SIGNIN_CANCELLED'
-    | 'GOOGLE_PROFILE_ERROR'
-    | 'POPUP_BLOCKED'
-    | 'NETWORK_ERROR';
 
 export interface AuthError {
     message: string;
-    code: ErrorCode | GoogleAuthErrorCode; // Update this
-    status: number;
-    details?: any;
-}
-
-export interface GoogleAuthError {
-    message: string;
-    code: GoogleAuthErrorCode;
+    code: ErrorCode;
     status: number;
     details?: any;
 }
@@ -130,4 +93,25 @@ export function isTokenResponse(obj: any): obj is TokenResponse {
         typeof obj.expiresIn === 'number' &&
         obj.user && typeof obj.user.id === 'string'
     );
+}
+
+export interface Environment {
+    production: boolean;
+    apiUrl: string;
+    encryptionKey: string;
+    auth: {
+        tokenRefreshInterval: number;
+        sessionTimeout: number;
+        refreshTokenPath: string;
+        loginPath: string;
+        signupPath: string;
+        logoutPath: string;
+        tokenStorage: {
+            accessToken: string;
+            refreshToken: string;
+        };
+        endpoints: {
+            [key: string]: string;
+        };
+    };
 }

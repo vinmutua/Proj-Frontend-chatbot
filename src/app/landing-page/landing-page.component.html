@@ -55,12 +55,12 @@
       </p>
       <div class="flex flex-col sm:flex-row gap-4">
         <a routerLink="/get-started"
-        class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 text-center"
-        [ngClass]="{ 'animate-bounce': isBouncing }">
-        Get Started
-      </a>
-      
-        <a routerLink="/signup" 
+          class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 text-center"
+          [ngClass]="{ 'animate-bounce': isBouncing }">
+          Get Started
+        </a>
+
+        <a routerLink="/signup"
           class=" px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-800 transition-colors duration-200 text-center">
           Sign Up
         </a>
@@ -72,26 +72,25 @@
   <div class="w-full md:w-1/2 relative">
     <!-- Base gray background -->
     <div class="absolute inset-0 bg-gray-50"></div>
-    
+
     <!-- Image container with overlay -->
     <div class="relative w-full h-full md:min-h-screen rounded-bl-[120px] overflow-hidden">
-        <div class="absolute inset-0 bg-cover bg-center"
-             [style.backgroundImage]="'url(/assets/images/hero.jpg)'">
-        </div>
-        
-        <!-- Navigation elements -->
-        <div class="relative z-10">
-            <a routerLink="/about"
-               class="hidden md:block absolute top-5 left-8 font-sans text-2xl text-white hover:text-gray-900 py-2">
-               Solution
-            </a>
-            <button type="button"
-                    class="hidden md:inline-flex absolute top-4 right-6 py-2 px-3 items-center gap-x-2 text-xl font-medium rounded-lg border border-white text-white hover:border-white/70 hover:text-white/70 focus:outline-none focus:border-white/70 focus:text-white/70 disabled:opacity-50 disabled:pointer-events-none">
-                Contact 
-            </button>
-        </div>
+      <div class="absolute inset-0 bg-cover bg-center" [style.backgroundImage]="'url(/assets/images/hero.jpg)'">
+      </div>
+
+      <!-- Navigation elements -->
+      <div class="relative z-10">
+        <a routerLink="/about"
+          class="hidden md:block absolute top-5 left-8 font-sans text-2xl text-white hover:text-gray-900 py-2">
+          Solution
+        </a>
+        <button type="button"
+          class="hidden md:inline-flex absolute top-4 right-6 py-2 px-3 items-center gap-x-2 text-xl font-medium rounded-lg border border-white text-white hover:border-white/70 hover:text-white/70 focus:outline-none focus:border-white/70 focus:text-white/70 disabled:opacity-50 disabled:pointer-events-none">
+          Contact
+        </button>
+      </div>
     </div>
-</div>
+  </div>
 </div>
 
 <!-- HERO SECTION -->
@@ -102,48 +101,54 @@
 
 <section class="flex flex-wrap min-h-screen">
   <!-- Left Section -->
-  <div (mouseenter)="enableScroll()" class="  w-full md:w-1/2 flex flex-col justify-center items-start p-8 lg:p-16  bg-gray-50 ">
+  <div (mouseenter)="enableScroll()"
+    class="  w-full md:w-1/2 flex flex-col justify-center items-start p-8 lg:p-16  bg-gray-50 ">
     <div class="mb-8">
       <h1 data-aos="fade-right" data-aos-delay="100" class="text-4xl lg:text-5xl font-bold  text-indigo-900 mb-4">
-        Seamless interactions intelligent 
+        Seamless interactions intelligent
         <span class="inline-block animate-flip   hollow-text text-cyan-600 ">AI</span>
-    </h1>
-    
+      </h1>
+
       <h1 class="text-4xl lg:text-5xl font-bold text-black mb-4">
         powered by
       </h1>
       <h1
-      class="text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-yellow-400 mb-4">
-      {{ displayedText }}
-    </h1>
+        class="text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-yellow-400 mb-4">
+        {{ displayedText }}
+      </h1>
       <p class="text-lg text-gray-700 mb-8">
         AI is transforming the world, and we are leading the charge. We are constructing the future of AI as a
         collective
       </p>
-      <button class="bg-green-500 text-white px-6 py-3 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 group">
+      <button
+        class="bg-green-500 text-white px-6 py-3 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 group">
         Get started
         <i class="fas fa-arrow-right ml-2 transition-all duration-300 group-hover:translate-x-2"></i>
-    </button>
-    
+      </button>
+
     </div>
     <div class="flex items-center">
       <!-- Avatars -->
       <div class="flex -space-x-2">
         <div class="hs-tooltip inline-block">
-          <img class="hs-tooltip-toggle relative inline-block size-[30px] rounded-full ring-2 ring-white hover:z-10" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Avatar">
-        
+          <img class="hs-tooltip-toggle relative inline-block size-[30px] rounded-full ring-2 ring-white hover:z-10"
+            src="../../assets/images/man-icon.jpeg" alt="Avatar">
+
         </div>
         <div class="hs-tooltip inline-block">
-          <img class="hs-tooltip-toggle relative inline-block size-[30px] rounded-full ring-2 ring-white hover:z-10" src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Avatar">
-         
+          <img class="hs-tooltip-toggle relative inline-block size-[30px] rounded-full ring-2 ring-white hover:z-10"
+            src="../../assets/images/avatar2.jpeg" alt="Avatar">
+
         </div>
         <div class="hs-tooltip inline-block">
-          <img class="hs-tooltip-toggle relative inline-block size-[30px] rounded-full ring-2 ring-white hover:z-10" src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80" alt="Avatar">
-         
+          <img class="hs-tooltip-toggle relative inline-block size-[30px] rounded-full ring-2 ring-white hover:z-10"
+            src="../../assets/images/avatar3.jpeg" alt="Avatar">
+
         </div>
         <div class="hs-tooltip inline-block">
-          <img class="hs-tooltip-toggle relative inline-block size-[30px] rounded-full ring-2 ring-white hover:z-10" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Avatar">
-         
+          <img class="hs-tooltip-toggle relative inline-block size-[30px] rounded-full ring-2 ring-white hover:z-10"
+            src="../../assets/images/avatar4.jpeg" alt="Avatar">
+
         </div>
       </div>
       <div class="flex space-x-2">
@@ -153,154 +158,85 @@
   </div>
 
   <!-- Right Section - Chat Container -->
-  <div (mouseenter)="disableScroll()" (mouseleave)="enableScroll()" class="w-full md:w-1/2 p-8 flex items-center justify-center bg-gray-50 h-screen overflow-hidden">
-    <div class="relative bg-gradient-to-r from-pink-100 via-purple-200 to-yellow-200 rounded-3xl shadow-lg w-full max-w-xl h-[600px] flex flex-col">
-        <!-- Fixed Header - No changes needed -->
-        <div class="absolute left-0 right-0 top-0 bg-gradient-to-r from-blue-200 via-purple-300 to-blue-200 p-4 rounded-t-3xl flex items-center gap-4 z-10">
-            <div class="relative inline-block">
-                <img src="assets/images/chatbot-icon.png" 
-                     alt="AI Assistant" 
-                     class="inline-block size-[46px] rounded-full border-2 border-white shadow-md"
-                />
-                <span class="absolute bottom-0 end-0 block size-3 rounded-full ring-2 ring-white bg-teal-400 dark:ring-neutral-900"></span>
-            </div>
-            <div>
-                <h3 class="font-bold text-gray-800">KAziBot AI Assistant</h3>
-                <p class="text-sm text-gray-600">Always here to help</p>
-            </div>
+  <div (mouseenter)="disableScroll()" (mouseleave)="enableScroll()"
+    class="w-full md:w-1/2 p-8 flex items-center justify-center bg-gray-50 h-screen overflow-hidden">
+    <div
+      class="relative bg-gradient-to-r from-pink-100 via-purple-200 to-yellow-200 rounded-3xl shadow-lg w-full max-w-xl h-[600px] flex flex-col">
+      <!-- Fixed Header - No changes needed -->
+      <div
+        class="absolute left-0 right-0 top-0 bg-gradient-to-r from-blue-200 via-purple-300 to-blue-200 p-4 rounded-t-3xl flex items-center gap-4 z-10">
+        <div class="relative inline-block">
+          <img src="assets/images/chatbot-icon.png" alt="AI Assistant"
+            class="inline-block size-[46px] rounded-full border-2 border-white shadow-md" />
+          <span
+            class="absolute bottom-0 end-0 block size-3 rounded-full ring-2 ring-white bg-teal-400 dark:ring-neutral-900"></span>
         </div>
-
-        <!-- Scrollable Messages Container -->
-        <div class="flex-1 overflow-y-auto mt-20 mb-20 px-8 scrollbar-hide">
-            <div class="space-y-4">
-                <div class="space-y-4">
-                    <!-- user chat bubbles -->
-                    <div class="flex justify-end mb-4 mt-16">
-                      <div class="flex items-end">
-                        <div class="bg-purple-500 text-white p-3 rounded-l-lg rounded-br-lg max-w-xs">
-                          <p>Hello, AI!</p>
-                          <span class="text-xs text-gray-200 block mt-1">10:00 AM</span>
-                        </div>
-                        <img alt="User profile picture" class="w-10 h-10 rounded-full ml-2" height="40"
-                          src="https://storage.googleapis.com/a1aa/image/8cGgub0ZDp8vpcKG5c2L1Qr39sp6PUBlOmPXXzv94zA.jpg"
-                          width="40" />
-                      </div>
-                    </div>
-                    <!-- AI chat bubbles -->
-          
-                    <div class="flex justify-start mb-4">
-                      <div class="flex items-end">
-                        <img alt="AI profile picture" class="w-10 h-10 rounded-full mr-2" height="40"
-                          src="assets/images/chatbot-icon.png"
-                          width="40" />
-                        <div class="bg-yellow-100 text-gray-800 p-3 rounded-r-lg rounded-bl-lg max-w-xs">
-                          <p>Hello! How can I assist you today?</p>
-                          <span class="text-xs text-gray-500 block mt-1">10:01 AM</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="space-y-4">
-                    <!-- user chat bubbles -->
-                    <div class="flex justify-end mb-4">
-                      <div class="flex items-end">
-                        <div class="bg-purple-500 text-white p-3 rounded-l-lg rounded-br-lg max-w-xs">
-                          <p>Hello, AI!</p>
-                          <span class="text-xs text-gray-200 block mt-1">10:00 AM</span>
-                        </div>
-                        <img alt="User profile picture" class="w-10 h-10 rounded-full ml-2" height="40"
-                          src="https://storage.googleapis.com/a1aa/image/8cGgub0ZDp8vpcKG5c2L1Qr39sp6PUBlOmPXXzv94zA.jpg"
-                          width="40" />
-                      </div>
-                    </div>
-                    <!-- AI chat bubbles -->
-          
-                    <div class="flex justify-start mb-4">
-                      <div class="flex items-end">
-                        <img alt="AI profile picture" class="w-10 h-10 rounded-full mr-2" height="40"
-                          src="assets/images/chatbot-icon.png"
-                          width="40" />
-                        <div class="bg-yellow-100 text-gray-800 p-3 rounded-r-lg rounded-bl-lg max-w-xs">
-                          <p>Hello! How can I assist you today?</p>
-                          <span class="text-xs text-gray-500 block mt-1">10:01 AM</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="space-y-4">
-                    <!-- user chat bubbles -->
-                    <div class="flex justify-end mb-4">
-                      <div class="flex items-end">
-                        <div class="bg-purple-500 text-white p-3 rounded-l-lg rounded-br-lg max-w-xs">
-                          <p>Hello, AI!</p>
-                          <span class="text-xs text-gray-200 block mt-1">10:00 AM</span>
-                        </div>
-                        <img alt="User profile picture" class="w-10 h-10 rounded-full ml-2" height="40"
-                          src="https://storage.googleapis.com/a1aa/image/8cGgub0ZDp8vpcKG5c2L1Qr39sp6PUBlOmPXXzv94zA.jpg"
-                          width="40" />
-                      </div>
-                    </div>
-                    <!-- AI chat bubbles -->
-          
-                    <div class="flex justify-start mb-4">
-                      <div class="flex items-end">
-                        <img alt="AI profile picture" class="w-10 h-10 rounded-full mr-2" height="40"
-                          src="assets/images/chatbot-icon.png"
-                          width="40" />
-                        <div class="bg-yellow-100 text-gray-800 p-3 rounded-r-lg rounded-bl-lg max-w-xs">
-                          <p>Hello! How can I assist you today?</p>
-                          <span class="text-xs text-gray-500 block mt-1">10:01 AM</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="space-y-4">
-                    <!-- user chat bubbles -->
-                    <div class="flex justify-end mb-4">
-                      <div class="flex items-end">
-                        <div class="bg-purple-500 text-white p-3 rounded-l-lg rounded-br-lg max-w-xs">
-                          <p>Hello, AI!</p>
-                          <span class="text-xs text-gray-200 block mt-1">10:00 AM</span>
-                        </div>
-                        <img alt="User profile picture" class="w-10 h-10 rounded-full ml-2" height="40"
-                          src="https://storage.googleapis.com/a1aa/image/8cGgub0ZDp8vpcKG5c2L1Qr39sp6PUBlOmPXXzv94zA.jpg"
-                          width="40" />
-                      </div>
-                    </div>
-                    <!-- AI chat bubbles -->
-          
-                    <div class="flex justify-start mb-4">
-                      <div class="flex items-end">
-                        <img alt="AI profile picture" class="w-10 h-10 rounded-full mr-2" height="40"
-                          src="assets/images/chatbot-icon.png"
-                          width="40" />
-                        <div class="bg-yellow-100 text-gray-800 p-3 rounded-r-lg rounded-bl-lg max-w-xs">
-                          <p>Hello! How can I assist you today?</p>
-                          <span class="text-xs text-gray-500 block mt-1">10:01 AM</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-            </div>
+        <div>
+          <h3 class="font-bold text-gray-800">KAziBot AI Assistant</h3>
+          <p class="text-sm text-gray-600">Always here to help</p>
         </div>
+      </div>
 
-        <!-- Fixed Input Section -->
-        <div class="absolute bottom-0 left-0 right-0 p-8 bg-transparent z-10">
-            <div class="flex items-center bg-white rounded-full shadow-md p-2 w-full max-w-lg">
-                <div class="flex items-center justify-center w-20 h-10 bg-gray-100 rounded-full px-4 py-2  mr-1">
-                  <span class="text-gray-500">Prompt</span>
+      <!-- Scrollable Messages Container -->
+      <div class="flex-1 overflow-y-auto mt-20 mb-32 px-8 scroll-smooth scrollbar-hide" #chatContainer>
+        <div class="space-y-4 py-4">
+          <ng-container *ngFor="let message of messages">
+            <!-- User message -->
+            <div *ngIf="message.type === MessageType.USER" class="flex justify-end mb-4" >
+              <div class="flex items-end">
+                <div class="bg-purple-500 text-white p-2 rounded-l-lg rounded-br-lg max-w-[200px] md:max-w-xs shadow">
+                  <p class="break-words text-sm">{{ message.content }}</p>
+                  <span class="text-xs text-gray-200 block mt-1">
+                    {{ message.timestamp | date:'shortTime' }}
+                  </span>
                 </div>
-                <input type="text" class="py-3 px-4 block w-full border-gray-200 rounded-2xl text-sm focus:border-blue-100 focus:ring-blue-100 disabled:opacity-50 disabled:pointer-events-none ">
-                <button
-                  class="ml-4 bg-purple-500 hover:bg-purple-600 text-white rounded-full p-2 w-10 h-10 flex items-center justify-center">
-                  <i class="fas fa-arrow-up"></i>
-                </button>
+                <img alt="User profile picture" class="w-8 h-8 rounded-full ml-2" height="32"
+                  src="../../assets/images/chatwidget.jpeg" width="32" />
               </div>
+            </div>
+
+            <!-- AI message -->
+            <div *ngIf="message.type === MessageType.AI" class="flex justify-start mb-4">
+              <div class="flex items-end">
+                <img alt="Bot profile picture" class="w-8 h-8 rounded-full mr-2" height="32"
+                  src="../../assets/images/chatbot-icon.png" width="32" />
+                <div class="bg-yellow-100 text-gray-800 p-2 rounded-r-lg rounded-bl-lg max-w-[200px] md:max-w-xs shadow">
+                  <p class="break-words text-sm">{{ message.content }}</p>
+                  <span class="text-xs text-gray-500 block mt-1">
+                    {{ message.timestamp | date:'shortTime' }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </ng-container>
         </div>
+      </div>
+
+      <!-- Fixed Input Section -->
+      <div class="absolute bottom-0 left-0 right-0 p-8 bg-transparent z-10">
+        <form (ngSubmit)="sendMessage($event)"
+          class="flex items-center bg-white rounded-full shadow-md p-2 w-full max-w-lg">
+          <div class="flex items-center justify-center w-20 h-10 bg-gray-100 rounded-full px-4 py-2 mr-1">
+            <span class="text-gray-500">Prompt</span>
+          </div>
+          <input type="text" [formControl]="messageInput"
+            class="py-3 px-4 block w-full rounded-2xl text-md   focus:outline-none "
+            placeholder="Type your message here...">
+          <button type="button" (click)="sendMessage()" [disabled]="messageInput.invalid || isLoading"
+            class="ml-4 bg-purple-500 hover:bg-purple-600 text-white rounded-full p-2 w-10 h-10 flex items-center justify-center">
+            <svg *ngIf="!isLoading" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(40deg);">
+              <line x1="12" y1="19" x2="12" y2="5"></line>
+              <polyline points="5 12 12 5 19 12"></polyline>
+            </svg>
+            <svg *ngIf="isLoading" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animate-spin">
+              <circle cx="12" cy="12" r="10" stroke-dasharray="50" stroke-dashoffset="25"></circle>
+              <path d="M12 6v6l4 2"></path>
+            </svg>
+          </button>
+        </form>
+      </div>
     </div>
-</div>
+  </div>
 
 
 
@@ -314,7 +250,7 @@
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto ml-20">
   <!-- Grid -->
   <div class="grid gap-6 grid-cols-2 sm:gap-12 lg:grid-cols-3 lg:gap-8 lg:w-4/5 lg:mx-auto">
-    
+
     <!-- Stats -->
     <div data-aos="fade-up">
       <h4 class="text-lg sm:text-xl font-semibold text-gray-800">Accuracy rate</h4>
@@ -352,14 +288,13 @@
   <!-- Grid -->
   <div class="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
     <div>
-      <img data-aos="fade-right" data-aos-delay="200" class="rounded-xl"
-        src="https://images.unsplash.com/photo-1648737963503-1a26da876aca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=900&h=900&q=80"
+      <img data-aos="fade-right" data-aos-delay="200" class="rounded-xl" src="../../assets/images/lady-feature.jpeg"
         alt="Features Image">
     </div>
     <!-- End Col -->
 
     <div class="mt-5 sm:mt-10 lg:mt-0">
-      <div class="space-y-6 sm:space-y-8"  data-aos="fade-up" data-aos-delay="200">
+      <div class="space-y-6 sm:space-y-8" data-aos="fade-up" data-aos-delay="200">
         <!-- Title -->
         <div class="space-y-2 md:space-y-4">
           <h2 class="font-bold text-3xl lg:text-4xl text-gray-800 ">
@@ -367,7 +302,7 @@
           </h2>
           <p class="text-gray-500 ">
             Our AI-powered chatbots enhance customer engagement, streamline support, and automate responses,
-             enabling businesses to provide instant, accurate, and personalized interactions 24/7.
+            enabling businesses to provide instant, accurate, and personalized interactions 24/7.
 
           </p>
         </div>
@@ -453,8 +388,9 @@
       </div>
       <div class="mt-5">
         <h3 class="text-lg font-semibold text-gray-800">Responsive</h3>
-        <p class="mt-1 text-gray-600">AI chatbots that deliver fast and efficient support, designed to provide an optimal experience on any device, anytime.</p>
-        
+        <p class="mt-1 text-gray-600">AI chatbots that deliver fast and efficient support, designed to provide an
+          optimal experience on any device, anytime.</p>
+
       </div>
     </div>
     <!-- End Icon Block -->
@@ -474,8 +410,9 @@
       </div>
       <div class="mt-5">
         <h3 class="text-lg font-semibold text-gray-800">Customizable</h3>
-        <p class="mt-1 text-gray-600">Chatbot responses, behavior, and appearance can be fully tailored to fit your brand and business needs.</p>
-        
+        <p class="mt-1 text-gray-600">Chatbot responses, behavior, and appearance can be fully tailored to fit your
+          brand and business needs.</p>
+
       </div>
     </div>
     <!-- End Icon Block -->
@@ -493,7 +430,8 @@
       </div>
       <div class="mt-5">
         <h3 class="text-lg font-semibold text-gray-800">Documentation</h3>
-<p class="mt-1 text-gray-600">Comprehensive documentation for setting up and configuring your AI chatbot to ensure smooth implementation and usage.</p>
+        <p class="mt-1 text-gray-600">Comprehensive documentation for setting up and configuring your AI chatbot to
+          ensure smooth implementation and usage.</p>
       </div>
     </div>
     <!-- End Icon Block -->
@@ -511,7 +449,8 @@
       </div>
       <div class="mt-5">
         <h3 class="text-lg font-semibold text-gray-800">24/7 Support</h3>
-        <p class="mt-1 text-gray-600">Our AI chatbots are available round the clock, providing continuous assistance and ensuring customer queries are addressed at any time .</p>
+        <p class="mt-1 text-gray-600">Our AI chatbots are available round the clock, providing continuous assistance and
+          ensuring customer queries are addressed at any time .</p>
       </div>
     </div>
     <!-- End Icon Block -->
@@ -538,72 +477,142 @@
     <div class="md:col-span-3">
       <!-- Accordion -->
       <div class="hs-accordion-group divide-y divide-gray-200">
-        <div data-aos="fade-down" data-aos-delay="50" class="hs-accordion pb-3 active" id="hs-basic-with-title-and-arrow-stretched-heading-one">
-          <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 focus:outline-none focus:text-gray-500" aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
+        <div data-aos="fade-down" data-aos-delay="50" class="hs-accordion pb-3 active"
+          id="hs-basic-with-title-and-arrow-stretched-heading-one">
+          <button
+            class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 focus:outline-none focus:text-gray-500"
+            aria-expanded="true" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-one">
             Can I customize my AI chatbot's responses?
-            <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+            <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500"
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+            <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500"
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m18 15-6-6-6 6" />
+            </svg>
           </button>
-          <div id="hs-basic-with-title-and-arrow-stretched-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
+          <div id="hs-basic-with-title-and-arrow-stretched-collapse-one"
+            class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region"
+            aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-one">
             <p class="text-gray-600">
-              Yes, you can fully customize the chatbot's responses, personality, and behavior based on your business needs and user interaction style.
+              Yes, you can fully customize the chatbot's responses, personality, and behavior based on your business
+              needs and user interaction style.
             </p>
           </div>
         </div>
-      
-        <div data-aos="fade-down" data-aos-delay="100" class="hs-accordion pt-6 pb-3" id="hs-basic-with-title-and-arrow-stretched-heading-two">
-          <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 focus:outline-none focus:text-gray-500" aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-two">
+
+        <div data-aos="fade-down" data-aos-delay="100" class="hs-accordion pt-6 pb-3"
+          id="hs-basic-with-title-and-arrow-stretched-heading-two">
+          <button
+            class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 focus:outline-none focus:text-gray-500"
+            aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-two">
             How do I integrate the chatbot with my website?
-            <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+            <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500"
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+            <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500"
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m18 15-6-6-6 6" />
+            </svg>
           </button>
-          <div id="hs-basic-with-title-and-arrow-stretched-collapse-two" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-two">
+          <div id="hs-basic-with-title-and-arrow-stretched-collapse-two"
+            class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region"
+            aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-two">
             <p class="text-gray-600">
-              Integration is simple. You can embed the chatbot script into your website or use a third-party platform for seamless integration.
+              Integration is simple. You can embed the chatbot script into your website or use a third-party platform
+              for seamless integration.
             </p>
           </div>
         </div>
-      
-        <div data-aos="fade-down" data-aos-delay="150" class="hs-accordion pt-6 pb-3" id="hs-basic-with-title-and-arrow-stretched-heading-three">
-          <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 focus:outline-none focus:text-gray-500" aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-three">
+
+        <div data-aos="fade-down" data-aos-delay="150" class="hs-accordion pt-6 pb-3"
+          id="hs-basic-with-title-and-arrow-stretched-heading-three">
+          <button
+            class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 focus:outline-none focus:text-gray-500"
+            aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-three">
             How does chatbot data privacy work?
-            <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+            <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500"
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+            <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500"
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m18 15-6-6-6 6" />
+            </svg>
           </button>
-          <div id="hs-basic-with-title-and-arrow-stretched-collapse-three" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-three">
+          <div id="hs-basic-with-title-and-arrow-stretched-collapse-three"
+            class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region"
+            aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-three">
             <p class="text-gray-600">
-              We adhere to strict data protection laws and ensure that all user data collected by the chatbot is encrypted and securely stored.
+              We adhere to strict data protection laws and ensure that all user data collected by the chatbot is
+              encrypted and securely stored.
             </p>
           </div>
         </div>
-      
-        <div data-aos="fade-down" data-aos-delay="200" class="hs-accordion pt-6 pb-3" id="hs-basic-with-title-and-arrow-stretched-heading-four">
-          <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 focus:outline-none focus:text-gray-500" aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-four">
+
+        <div data-aos="fade-down" data-aos-delay="200" class="hs-accordion pt-6 pb-3"
+          id="hs-basic-with-title-and-arrow-stretched-heading-four">
+          <button
+            class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 focus:outline-none focus:text-gray-500"
+            aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-four">
             Is the chatbot compatible with my platform?
-            <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+            <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500"
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+            <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500"
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m18 15-6-6-6 6" />
+            </svg>
           </button>
-          <div id="hs-basic-with-title-and-arrow-stretched-collapse-four" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-four">
+          <div id="hs-basic-with-title-and-arrow-stretched-collapse-four"
+            class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region"
+            aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-four">
             <p class="text-gray-600">
-              Our chatbot is highly compatible with most web platforms and can be integrated easily across various CMS and website frameworks.
+              Our chatbot is highly compatible with most web platforms and can be integrated easily across various CMS
+              and website frameworks.
             </p>
           </div>
         </div>
-      
-        <div data-aos="fade-down" data-aos-delay="250" class="hs-accordion pt-6 pb-3" id="hs-basic-with-title-and-arrow-stretched-heading-five">
-          <button class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 focus:outline-none focus:text-gray-500" aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-five">
+
+        <div data-aos="fade-down" data-aos-delay="250" class="hs-accordion pt-6 pb-3"
+          id="hs-basic-with-title-and-arrow-stretched-heading-five">
+          <button
+            class="hs-accordion-toggle group pb-3 inline-flex items-center justify-between gap-x-3 w-full md:text-lg font-semibold text-start text-gray-800 rounded-lg transition hover:text-gray-500 focus:outline-none focus:text-gray-500"
+            aria-expanded="false" aria-controls="hs-basic-with-title-and-arrow-stretched-collapse-five">
             How do I manage chatbot responses?
-            <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-            <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+            <svg class="hs-accordion-active:hidden block shrink-0 size-5 text-gray-600 group-hover:text-gray-500"
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+            <svg class="hs-accordion-active:block hidden shrink-0 size-5 text-gray-600 group-hover:text-gray-500"
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m18 15-6-6-6 6" />
+            </svg>
           </button>
-          <div id="hs-basic-with-title-and-arrow-stretched-collapse-five" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-five">
+          <div id="hs-basic-with-title-and-arrow-stretched-collapse-five"
+            class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region"
+            aria-labelledby="hs-basic-with-title-and-arrow-stretched-heading-five">
             <p class="text-gray-600">
-              You can easily manage your chatbot's responses and modify scripts through our intuitive dashboard for a personalized interaction experience.
+              You can easily manage your chatbot's responses and modify scripts through our intuitive dashboard for a
+              personalized interaction experience.
             </p>
           </div>
         </div>
       </div>
-      
+
       <!-- End Accordion -->
     </div>
     <!-- End Col -->
@@ -617,80 +626,75 @@
 
 
 
-
-
-<!-- Footer -->
-<footer class="mt-auto w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
-  <!-- Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-5">
-    <div>
-      <a class="flex-none text-xl font-semibold text-black focus:outline-none " href="#"
-        aria-label="Brand">KaziBot</a>
-    </div>
-    <!-- End Col -->
-
-    <ul class="text-center">
-      <li
-        class="inline-block relative pe-8 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-3 before:-translate-y-1/2 before:content-['/'] before:text-gray-300 dark:before:text-neutral-600">
-        <a class="inline-flex gap-x-2 text-xl text-gray-500 hover:text-gray-800 focus:outline-none focus:text-gray-800 "
-          href="#">
-          About
-        </a>
-      </li>
-      <li
-        class="inline-block relative pe-8 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-3 before:-translate-y-1/2 before:content-['/'] before:text-gray-300 dark:before:text-neutral-600">
-        <a class="inline-flex gap-x-2 text-xl text-gray-500 hover:text-gray-800 focus:outline-none focus:text-gray-800"
-          href="#">
-          Services
-        </a>
-      </li>
-      <li
-        class="inline-block relative pe-8 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-3 before:-translate-y-1/2 before:content-['/'] before:text-gray-300 dark:before:text-neutral-600">
-        <a class="inline-flex gap-x-2 text-xl text-gray-500 hover:text-gray-800 focus:outline-none focus:text-gray-800 "
-          href="#">
-          Blog
-        </a>
-      </li>
-    </ul>
-    <!-- End Col -->
-
-    <!-- Social Brands -->
-    <div class="md:text-end space-x-2">
-      <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
-        href="#">
-        <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-          viewBox="0 0 16 16">
-          <path
-            d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
-        </svg>
-      </a>
-      <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
-        href="#">
-        <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-          viewBox="0 0 16 16">
-          <path
-            d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
-        </svg>
-      </a>
-      <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
-        href="#">
-        <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-          viewBox="0 0 16 16">
-          <path
-            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-        </svg>
-      </a>
-      <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
-        href="#">
-        <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-          viewBox="0 0 16 16">
-          <path
-            d="M3.362 10.11c0 .926-.756 1.681-1.681 1.681S0 11.036 0 10.111C0 9.186.756 8.43 1.68 8.43h1.682v1.68zm.846 0c0-.924.756-1.68 1.681-1.68s1.681.756 1.681 1.68v4.21c0 .924-.756 1.68-1.68 1.68a1.685 1.685 0 0 1-1.682-1.68v-4.21zM5.89 3.362c-.926 0-1.682-.756-1.682-1.681S4.964 0 5.89 0s1.68.756 1.68 1.68v1.682H5.89zm0 .846c.924 0 1.68.756 1.68 1.681S6.814 7.57 5.89 7.57H1.68C.757 7.57 0 6.814 0 5.89c0-.926.756-1.682 1.68-1.682h4.21zm6.749 1.682c0-.926.755-1.682 1.68-1.682.925 0 1.681.756 1.681 1.681s-.756 1.681-1.68 1.681h-1.681V5.89zm-.848 0c0 .924-.755 1.68-1.68 1.68A1.685 1.685 0 0 1 8.43 5.89V1.68C8.43.757 9.186 0 10.11 0c.926 0 1.681.756 1.681 1.68v4.21zm-1.681 6.748c.926 0 1.682.756 1.682 1.681S11.036 16 10.11 16s-1.681-.756-1.681-1.68v-1.682h1.68zm0-.847c-.924 0-1.68-.755-1.68-1.68 0-.925.756-1.681 1.68-1.681h4.21c.924 0 1.68.756 1.68 1.68 0 .926-.756 1.681-1.68 1.681h-4.21z" />
-        </svg>
-      </a>
-    </div>
-    <!-- End Social Brands -->
+<!-- Footer  start -->
+<footer class="p-4 sm:p-6 bg-gray-200">
+  <div class="mx-auto max-w-screen-xl">
+      <div class="md:flex md:justify-between">
+          <div class="mb-6 md:mb-0">
+              <a href="https://flowbite.com" class="flex items-center">
+                  <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-8" alt="FlowBite Logo" /> -->
+                  <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">KAzibot</span>
+              </a>
+          </div>
+          <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
+                  <ul class="text-gray-600 dark:text-gray-400">
+                      <li class="mb-4">
+                          <a href="#" class="hover:underline">KAzibot</a>
+                      </li>
+                      <li>
+                          <a href="https://tailwindcss.com/" class="hover:underline">Tailwind CSS</a>
+                      </li>
+                  </ul>
+              </div>
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
+                  <ul class="text-gray-600 dark:text-gray-400">
+                      <li class="mb-4">
+                          <a href="#" class="hover:underline ">Github</a>
+                      </li>
+                      <li>
+                          <a href="#" class="hover:underline">Discord</a>
+                      </li>
+                  </ul>
+              </div>
+              <div>
+                  <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
+                  <ul class="text-gray-600 dark:text-gray-400">
+                      <li class="mb-4">
+                          <a href="#" class="hover:underline">Privacy Policy</a>
+                      </li>
+                      <li>
+                          <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+      <div class="sm:flex sm:items-center sm:justify-between">
+          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="#" class="hover:underline">KAzibot™</a>. All Rights Reserved.
+          </span>
+          <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+              <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+              </a>
+              <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+              </a>
+              <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg>
+              </a>
+              <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+              </a>
+              <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z" clip-rule="evenodd" /></svg>
+              </a>
+          </div>
+      </div>
   </div>
-  <!-- End Grid -->
 </footer>
-<app-messenger-chat></app-messenger-chat>
+<!-- Footer -->
+

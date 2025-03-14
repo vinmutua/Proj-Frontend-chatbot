@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { TOKEN_KEYS, AUTH_CONFIG, AUTH_ENDPOINTS } from '../core/constants/auth.constants';
+import { TOKEN_KEYS,AUTH_ENDPOINTS } from '../core/constants/auth.constants';
 import { TokenResponse } from '../interfaces/user.interface';
 import { HttpClient } from '@angular/common/http';
 
@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TokenService {
     private storage: Storage = window.localStorage;
+    private refreshTokenTimeout: any;
 
     constructor(private http: HttpClient) {}
 
@@ -16,6 +17,7 @@ export class TokenService {
         this.storage.setItem(TOKEN_KEYS.ACCESS_TOKEN, response.accessToken);
         this.storage.setItem(TOKEN_KEYS.REFRESH_TOKEN, response.refreshToken);
         this.storage.setItem(TOKEN_KEYS.EXPIRY, String(now + response.expiresIn * 1000));
+        this.startRefreshTokenTimer(response.expiresIn);
     }
 
     setRefreshToken(token: string): void {
@@ -50,6 +52,7 @@ export class TokenService {
         this.storage.removeItem(TOKEN_KEYS.ACCESS_TOKEN);
         this.storage.removeItem(TOKEN_KEYS.REFRESH_TOKEN);
         this.storage.removeItem(TOKEN_KEYS.EXPIRY);
+        this.stopRefreshTokenTimer();
     }
 
     isTokenValid(): boolean {
@@ -66,5 +69,27 @@ export class TokenService {
         const token = this.getAccessToken();
         const expiry = localStorage.getItem(TOKEN_KEYS.EXPIRY);
         return !!(token && expiry && Date.now() < Number(expiry));
+    }
+
+    startRefreshTokenTimer(expiresIn: number): void {
+        this.stopRefreshTokenTimer();
+        const refreshTime = (expiresIn - 60) * 1000;
+        
+        this.refreshTokenTimeout = setTimeout(async () => {
+            if (this.isTokenValid()) {
+                try {
+                    await this.refreshToken(this.getRefreshToken()!);
+                } catch (error) {
+                    this.clearTokens();
+                    throw error;
+                }
+            }
+        }, refreshTime);
+    }
+
+    private stopRefreshTokenTimer(): void {
+        if (this.refreshTokenTimeout) {
+            clearTimeout(this.refreshTokenTimeout);
+        }
     }
 }

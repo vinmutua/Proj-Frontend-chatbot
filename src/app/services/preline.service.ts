@@ -1,20 +1,15 @@
 import { Injectable } from '@angular/core';
 
-declare global {
-  interface Window {
-    HSStaticMethods: any;
-  }
-}
-
 @Injectable({
   providedIn: 'root'
 })
 export class PrelineService {
-  init() {
-    document.addEventListener('DOMContentLoaded', () => {
-      if (window.HSStaticMethods) {
-        window.HSStaticMethods.autoInit();
-      }
-    });
+  init(): void {
+    // Don't initialize Preline if we're on an auth page
+    if (window.location.pathname.includes('login') || 
+        window.location.pathname.includes('signup')) {
+      return;
+    }
+    console.log('Preline initialized via CDN');
   }
 }

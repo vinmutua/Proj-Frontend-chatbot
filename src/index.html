@@ -4,45 +4,35 @@
 <head>
   <!-- Meta tags -->
   <meta charset="utf-8">
-  <title>KaziBot</title>
+  <title>KAzibot 🌟</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <!-- CSP Policy - Allow everything (*) -->
-  <meta http-equiv="Content-Security-Policy" content="
-    default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;
-    script-src * 'unsafe-inline' 'unsafe-eval';
-    connect-src * 'unsafe-inline';
-    img-src * data: blob: 'unsafe-inline';
-    frame-src *;
-    style-src * 'unsafe-inline';
-    font-src * data:;">
+  <!-- Remove Google Sign-In Script -->
   
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Simplified CSP without Google domains -->
+  <meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval'
+              https://cdn.jsdelivr.net
+              https://unpkg.com;
+  style-src 'self' 'unsafe-inline'
+              https://fonts.googleapis.com
+              https://*.gstatic.com
+              https://cdn.jsdelivr.net;
+  img-src 'self' data:;
+  connect-src 'self' 
+              http://localhost:3000
+              http://localhost:4200;
+  font-src 'self' 
+              https://fonts.gstatic.com;
+  object-src 'none';
+  base-uri 'self';">
+ 
+
   
   <!-- External Scripts -->
-  <script defer src="https://cdn.jsdelivr.net/npm/preline@2.0.3/dist/preline.min.js"></script>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   
-  <!-- Facebook SDK -->
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        xfbml: true,
-        version: 'v18.0',
-        appId: '2067296117108267'
-      });
-    };
-
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  </script>
 </head>
 
 <body>

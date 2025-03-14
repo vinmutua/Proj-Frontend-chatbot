@@ -4,14 +4,19 @@
     color: transparent;
 }
 
-/* Hide scrollbar while maintaining functionality */
+/* Hide scrollbar but maintain functionality */
 .scrollbar-hide {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;     /* Firefox */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-    display: none;  /* Chrome, Safari and Opera */
+    display: none;  /* Chrome, Safari, Opera */
+}
+
+/* Add smooth scrolling */
+.scroll-smooth {
+    scroll-behavior: smooth;
 }
 
 /* Container styles */
@@ -33,4 +38,15 @@
     height: calc(100% - 8rem); /* Subtract header and input heights */
     overflow-y: auto;
     margin: 4rem 0;
+}
+
+/* Ensure message content wraps properly */
+.break-words {
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+/* Ensure sufficient space between messages */
+.mb-4 {
+  margin-bottom: 1rem;
 }

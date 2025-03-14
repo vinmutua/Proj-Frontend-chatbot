@@ -6,7 +6,7 @@ import { AuthService } from '../services/auth.service';
 import { Provider } from '@angular/core';
 import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { from, retryWhen, firstValueFrom } from 'rxjs';
+import { from,  firstValueFrom } from 'rxjs';
 import { TokenService } from '../services/token.service';
 import { PUBLIC_ENDPOINTS, AUTH_ENDPOINTS } from '../core/constants/auth.constants';  // Updated import
 
